@@ -720,7 +720,7 @@ def optomize_at_test(
             print("\n==============Start Supervised Learning==============\n")
 
             ## Sort gp programs by reward and select the top 30% programs
-            p_collection_reward = np.array([1 / (gp_p.task.evaluate(gp_p)["nmse_test"] + 1) if gp_p.task.evaluate(gp_p)["nmse_test"] != None else 0 for gp_p in gp_collection])
+            gp_collection_reward = np.array([1 / (gp_p.task.evaluate(gp_p)["nmse_test"] + 1) if gp_p.task.evaluate(gp_p)["nmse_test"] != None else 0 for gp_p in gp_collection])
             gp_ratio = (config["gp_meld"]["train_n"] / len(gp_collection)) * 0.3
             gp_quantile = np.quantile(gp_collection_reward, 1 - gp_ratio, interpolation="higher")  # pyright: ignore
             gp_keep = gp_collection_reward >= gp_quantile
@@ -1336,9 +1336,9 @@ def pgd_check(sympy, X, low_bound, up_bound):
     if len(list(sympy.free_symbols)) < 1:
         return False, np.array([])
     
-    sympy_torch = sympytorch.SymPyModule(expressions=[sympy]).to("cuda:1")
-    data = torch.rand((X.shape[0], X.shape[1])).to("cuda:1")
-    result = pgd_attack(data, sympy_torch, min(up_bound)*0.8, steps=100, lower_boundary=torch.tensor(low_bound).to("cuda:1"), upper_boundary=torch.tensor(up_bound).to("cuda:1"), direction="minimize")
+    sympy_torch = sympytorch.SymPyModule(expressions=[sympy]).to("DEVICE")
+    data = torch.rand((X.shape[0], X.shape[1])).to("DEVICE")
+    result = pgd_attack(data, sympy_torch, min(up_bound)*0.8, steps=100, lower_boundary=torch.tensor(low_bound).to("DEVICE"), upper_boundary=torch.tensor(up_bound).to("DEVICE"), direction="minimize")
     num_vars = result.shape[1]
     arg_dict = {f'x{i+1}': result[:, [i]] for i in range(num_vars)}
     evaluation = sympy_torch(**arg_dict).squeeze(1).squeeze(1)
