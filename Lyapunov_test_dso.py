@@ -7,7 +7,7 @@ import torch
 import torch.multiprocessing as multiprocessing
 from dso.utils import log_and_print
 
-from config import get_config
+from config import get_config, get_benchmark_name
 
 
 import os
@@ -63,8 +63,8 @@ conf.exp.seed_runs = 1
 conf.exp.n_cores_task = 1 
 conf.exp.seed_start = 5
 conf.exp.baselines = ["transformer"]
-# User must specify the benchmark to run:
-conf.exp.benchmark = "fn_d_all_o"  
+
+conf.exp.benchmark = get_benchmark_name()
 
 Path("./logs").mkdir(parents=True, exist_ok=True)
 
