@@ -11,6 +11,13 @@ import timeit
 import sympytorch
 from config import dynamics
 
+_LAMBDIFY_CACHE = {}
+
+def get_compiled_vdot(p_str, lie_expr):
+    """Retrieve compiled numpy function from cache using candidate string key, or compile using SymPy expression directly."""
+    if p_str not in _LAMBDIFY_CACHE:
+        _LAMBDIFY_CACHE[p_str] = lambdify(dynamics()[0], lie_expr, "numpy")
+    return _LAMBDIFY_CACHE[p_str]
 
 
 class RegressionTask(HierarchicalTask):
@@ -222,7 +229,7 @@ class RegressionTask(HierarchicalTask):
                 else:
                     lie_result = np.ones(self.X_train.shape[0]) * (-0.5)
             
-            numpy_v_dot = lambdify(dynamics()[0], lie, "numpy")
+            numpy_v_dot = get_compiled_vdot(p.str, lie)
             lie_result = numpy_v_dot(*[self.X_train[:, i] for i in range(self.X_train.shape[1])]) * 1
 
         r = self.metric(lie_result, y_hat-origin)
@@ -270,7 +277,7 @@ class RegressionTask(HierarchicalTask):
                         lie_result = np.ones(self.X_test.shape[0]) * 10
                     else:
                         lie_result = np.zeros(self.X_test.shape[0])
-                numpy_v_dot = lambdify(dynamics()[0], lie, "numpy")
+                numpy_v_dot = get_compiled_vdot(p.str, lie)
                 lie_result = numpy_v_dot(*[self.X_test[:, i] for i in range(self.X_test.shape[1])])
 
 

@@ -73,7 +73,11 @@ df = benchmark_df[benchmark_df.index.str.contains(conf.exp.benchmark)]
 datasets = df.index.to_list()
 
 file_name = os.path.basename(os.path.realpath(__file__)).split(".py")[0]
-path_run_name = "all_{}-{}_01".format(file_name, conf.exp.benchmark)
+if "ALFD_RUN_TIMESTAMP" not in os.environ:
+    os.environ["ALFD_RUN_TIMESTAMP"] = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+timestamp = os.environ["ALFD_RUN_TIMESTAMP"]
+path_run_name = "all_{}-{}_{}".format(file_name, conf.exp.benchmark, timestamp)
 
 
 def create_our_logger(path_run_name):
