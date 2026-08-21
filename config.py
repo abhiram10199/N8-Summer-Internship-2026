@@ -1,18 +1,22 @@
 import importlib
+import os
 
-# 2d, 3d, 4d, 6d_poly, 6d_quad, 8d, 9d, 10d
-SELECT_DIMENSION = "10d"
+# 2d, 3d, 4d, 6d_poly, 6d_quad, 8d, 10d, 12d
+# SELECT_DIMENSION = "10d"
+SELECT_DIMENSION = os.getenv("SELECT_DIMENSION", "2d")
+
 
 def CURRENT_CONFIG():
     CONFIGS = {
-        '2d': "example_config.config_2d_simple_pendulum",
-        '3d': "example_config.config_3d_trig",
-        '4d': "example_config.config_4d_2bus_lossy_power",
-        '6d_poly': "example_config.config_6d_poly",
-        '6d_quad': "example_config.config_6d_quadrator",
-        '8d': "example_config.config_8d_poly",
-        '9d': "example_config.config_9d_syn",
-        '10d': "example_config.config_10d_poly"
+        "2d": "example_config.config_2d_simple_pendulum",
+        "3d": "example_config.config_3d_trig",
+        "4d": "example_config.config_4d_2bus_lossy_power",
+        "6d_poly": "example_config.config_6d_poly",
+        "6d_quad": "example_config.config_6d_quadrator",
+        "8d": "example_config.config_8d_poly",
+        # "9d": "example_config.config_9d_syn",
+        "10d": "example_config.config_10d_poly",
+        "12d": "example_config.config_12d_bus",
     }
     
     module_name = CONFIGS[SELECT_DIMENSION]
@@ -21,14 +25,15 @@ def CURRENT_CONFIG():
 # Gets the benchmark name based on the dimension for Lyapunov file
 def get_benchmark_name():
     dimension_benchmark_name = {
-    '2d': "fn_d_all_y.csv",
-    '3d': "fn_d_all_t.csv",
-    '4d': "fn_d_all_o.csv",
-    '6d_poly': "fn_d_all_m.csv",
-    '6d_quad': "fn_d_all_z.csv",
-    '8d': "fn_d_all_n.csv",
-    '9d': "fn_d_all_l.csv",
-    '10d': "fn_d_all_x.csv"
+        "2d": "fn_d_all_y",
+        "3d": "fn_d_all_t",
+        "4d": "fn_d_all_o",
+        "6d_poly": "fn_d_all_m",
+        "6d_quad": "fn_d_all_z",
+        "8d": "fn_d_all_n",
+        # "9d": "fn_d_all_l",
+        "10d": "fn_d_all_x",
+        "12d": "fn_d_all_12d",
     }
     return dimension_benchmark_name[SELECT_DIMENSION]
 

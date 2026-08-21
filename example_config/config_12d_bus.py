@@ -39,19 +39,20 @@ def config_factory():
 
 
 def dynamics():
-    x1, x2, x3, x4 = sym.symbols("x1, x2, x3, x4")
+    x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12 = sym.symbols(
+        "x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12"
+    )
 
-    ## 4-D 2-bus Lossy Power System
-    ## fn_d_all_o_5 is the corresponding state space and training set setting in libs/sd3/dso/dso/task/regression/benchmarks_bkup_1.csv
+    ## 12-D 6-bus Lossy Power System
+    ## fn_d_all_12d_5 is the corresponding state space and training set setting in libs/sd3/dso/dso/task/regression/benchmarks_bkup_1.csv
 
-    state_variables = [x1, x2, x3, x4]
+    state_variables = [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12]
 
-    dynamics_ode = [
-        x3 - (x3 + x4) * 0.5,
-        x4 - (x3 + x4) * 0.5,
-        (-1 - 2 * x3 - sym.sin(x1 - x2) + sym.cos(x1 - x2)) * 0.5,
-        (-1 - 2 * x4 - sym.sin(x2 - x1) + sym.cos(x2 - x1)) * 0.5,
-    ]
+    dynamics_ode = ...
+    # dynamics_ode = [x3 - (x3 + x4) * 0.5,
+    #     x4 - (x3 + x4) * 0.5,
+    #     (-1 - 2 * x3 - sym.sin(x1-x2) + sym.cos(x1-x2)) * 0.5,
+    #     (-1 - 2 * x4 - sym.sin(x2-x1) + sym.cos(x2-x1)) * 0.5]
 
     return state_variables, dynamics_ode
 
@@ -81,7 +82,7 @@ def train_config_factory():
                 "n_l_enc": 5,
                 "mean": 0.5,
                 "std": 0.5,
-                "dim_input": 4,
+                "dim_input": 12,
                 "num_heads": 2,
                 "output_dim": 10,
             },

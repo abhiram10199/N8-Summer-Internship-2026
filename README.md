@@ -57,8 +57,10 @@ sympy_torch = sympytorch.SymPyModule(expressions=[sympy]).to('cuda:1')
 # Replace with
 sympy_torch = sympytorch.SymPyModule(expressions=[sympy]).to(DEVICE)
 ```
+4. ### 9d does not exist. There is no 9D, it's a copy of 8D!
 
 
+---
 # Analytical-Lyapunov-Function-Discovery
 Offical Pytorch implementation for the paper **"Analytical Lyapunov Function Discovery: An RL-based Generative Approach"**, presented at ICML 2025. We introduce the first RL-based framework for directly discovering analytical Lyapunov functions for nonlinear dynamical systems, bypassing the need for supervised learning with large-scale datasets. Our framework succeeds on various non-polynomial dynamics, like the simple pendulum, quadrotor, and power system frequency control, and notably scales to a 10-D system and discovers a valid local Lyapunov function for power system frequency control with lossy transmission lines, which is previously unknown in the literature. For details, see [**Analytical Lyapunov Function Discovery: An RL-based Generative Approach**](https://arxiv.org/abs/2502.02014).
 
