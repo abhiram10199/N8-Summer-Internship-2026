@@ -1336,9 +1336,9 @@ def pgd_check(sympy, X, low_bound, up_bound):
     if len(list(sympy.free_symbols)) < 1:
         return False, np.array([])
     
-    sympy_torch = sympytorch.SymPyModule(expressions=[sympy]).to("DEVICE")
-    data = torch.rand((X.shape[0], X.shape[1])).to("DEVICE")
-    result = pgd_attack(data, sympy_torch, min(up_bound)*0.8, steps=100, lower_boundary=torch.tensor(low_bound).to("DEVICE"), upper_boundary=torch.tensor(up_bound).to("DEVICE"), direction="minimize")
+    sympy_torch = sympytorch.SymPyModule(expressions=[sympy]).to(DEVICE)
+    data = torch.rand((X.shape[0], X.shape[1])).to(DEVICE)
+    result = pgd_attack(data, sympy_torch, min(up_bound)*0.8, steps=100, lower_boundary=torch.tensor(low_bound).to(DEVICE), upper_boundary=torch.tensor(up_bound).to(DEVICE), direction="minimize")
     num_vars = result.shape[1]
     arg_dict = {f'x{i+1}': result[:, [i]] for i in range(num_vars)}
     evaluation = sympy_torch(**arg_dict).squeeze(1).squeeze(1)
