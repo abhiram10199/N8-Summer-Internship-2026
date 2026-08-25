@@ -48,12 +48,74 @@ def dynamics():
 
     state_variables = [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12]
 
-    dynamics_ode = ...
-    # dynamics_ode = [x3 - (x3 + x4) * 0.5,
-    #     x4 - (x3 + x4) * 0.5,
-    #     (-1 - 2 * x3 - sym.sin(x1-x2) + sym.cos(x1-x2)) * 0.5,
-    #     (-1 - 2 * x4 - sym.sin(x2-x1) + sym.cos(x2-x1)) * 0.5]
+    # Model Parameters: Normalized for standard ML benchmark discovery
+    # P_m (Mechanical power push) = 1.0
+    # M (Inertia weight) = 1.0, D (Friction drag) = 1.0
+    # B (Ideal line strength) = 1.0, G (Lossy resistance drop) = 0.5
 
+    dynamics_ode = [
+        # 1-6: Rate of change of positions (Angles) = Speed deviations
+        x7,
+        x8,
+        x9,
+        x10,
+        x11,
+        x12,
+        
+        # 7: Speed acceleration of Generator 1
+        1.0 - 1.0 * x7 - (
+            0.5 * sym.cos(x1 - x2) + 1.0 * sym.sin(x1 - x2) +
+            0.5 * sym.cos(x1 - x3) + 1.0 * sym.sin(x1 - x3) +
+            0.5 * sym.cos(x1 - x4) + 1.0 * sym.sin(x1 - x4) +
+            0.5 * sym.cos(x1 - x5) + 1.0 * sym.sin(x1 - x5) +
+            0.5 * sym.cos(x1 - x6) + 1.0 * sym.sin(x1 - x6)
+        ),
+        
+        # 8: Speed acceleration of Generator 2
+        1.0 - 1.0 * x8 - (
+            0.5 * sym.cos(x2 - x1) + 1.0 * sym.sin(x2 - x1) +
+            0.5 * sym.cos(x2 - x3) + 1.0 * sym.sin(x2 - x3) +
+            0.5 * sym.cos(x2 - x4) + 1.0 * sym.sin(x2 - x4) +
+            0.5 * sym.cos(x2 - x5) + 1.0 * sym.sin(x2 - x5) +
+            0.5 * sym.cos(x2 - x6) + 1.0 * sym.sin(x2 - x6)
+        ),
+        
+        # 9: Speed acceleration of Generator 3
+        1.0 - 1.0 * x9 - (
+            0.5 * sym.cos(x3 - x1) + 1.0 * sym.sin(x3 - x1) +
+            0.5 * sym.cos(x3 - x2) + 1.0 * sym.sin(x3 - x2) +
+            0.5 * sym.cos(x3 - x4) + 1.0 * sym.sin(x3 - x4) +
+            0.5 * sym.cos(x3 - x5) + 1.0 * sym.sin(x3 - x5) +
+            0.5 * sym.cos(x3 - x6) + 1.0 * sym.sin(x3 - x6)
+        ),
+        
+        # 10: Speed acceleration of Generator 4
+        1.0 - 1.0 * x10 - (
+            0.5 * sym.cos(x4 - x1) + 1.0 * sym.sin(x4 - x1) +
+            0.5 * sym.cos(x4 - x2) + 1.0 * sym.sin(x4 - x2) +
+            0.5 * sym.cos(x4 - x3) + 1.0 * sym.sin(x4 - x3) +
+            0.5 * sym.cos(x4 - x5) + 1.0 * sym.sin(x4 - x5) +
+            0.5 * sym.cos(x4 - x6) + 1.0 * sym.sin(x4 - x6)
+        ),
+        
+        # 11: Speed acceleration of Generator 5
+        1.0 - 1.0 * x11 - (
+            0.5 * sym.cos(x5 - x1) + 1.0 * sym.sin(x5 - x1) +
+            0.5 * sym.cos(x5 - x2) + 1.0 * sym.sin(x5 - x2) +
+            0.5 * sym.cos(x5 - x3) + 1.0 * sym.sin(x5 - x3) +
+            0.5 * sym.cos(x5 - x4) + 1.0 * sym.sin(x5 - x4) +
+            0.5 * sym.cos(x5 - x6) + 1.0 * sym.sin(x5 - x6)
+        ),
+        
+        # 12: Speed acceleration of Generator 6
+        1.0 - 1.0 * x12 - (
+            0.5 * sym.cos(x6 - x1) + 1.0 * sym.sin(x6 - x1) +
+            0.5 * sym.cos(x6 - x2) + 1.0 * sym.sin(x6 - x2) +
+            0.5 * sym.cos(x6 - x3) + 1.0 * sym.sin(x6 - x3) +
+            0.5 * sym.cos(x6 - x4) + 1.0 * sym.sin(x6 - x4) +
+            0.5 * sym.cos(x6 - x5) + 1.0 * sym.sin(x6 - x5)
+        )
+    ]
     return state_variables, dynamics_ode
 
 
