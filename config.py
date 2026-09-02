@@ -17,6 +17,9 @@ def CURRENT_CONFIG():
         # "9d": "example_config.config_9d_syn",
         "10d": "example_config.config_10d_poly",
         "12d": "example_config.config_12d_bus",
+        "6d_dc": "example_config.config_6d_dc_microgrid",
+        "20d_kron": "example_config.config_20d_ieee39_kron",
+        "49d_full": "example_config.config_49d_ieee39_full",
     }
     
     module_name = CONFIGS[SELECT_DIMENSION]
@@ -34,6 +37,9 @@ def get_benchmark_name():
         # "9d": "fn_d_all_l",
         "10d": "fn_d_all_x",
         "12d": "fn_d_all_12d",
+        "6d_dc": "fn_d_all_6dc",
+        "20d_kron": "fn_d_all_kron",
+        "49d_full": "fn_d_all_full",
     }
     return dimension_benchmark_name[SELECT_DIMENSION]
 
