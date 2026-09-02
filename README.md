@@ -35,6 +35,7 @@ Run the following one after another in the terminal.
 
 ```
 uv venv --python 3.9
+source .venv/bin/activate
 uv pip install "setuptools<58.0.0" wheel cython "numpy<2.0.0"
 pip install -r requirements.txt --no-build-isolation
 cd libs/sd3/dso
