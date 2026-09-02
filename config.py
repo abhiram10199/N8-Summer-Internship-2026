@@ -2,7 +2,7 @@ import importlib
 import os
 
 # 2d, 3d, 4d, 6d_poly, 6d_quad, 8d, 10d, 12d
-SELECT_DIMENSION = "12d"
+SELECT_DIMENSION = "6d_quad"
 # SELECT_DIMENSION = os.getenv("SELECT_DIMENSION", "2d")
 
 
