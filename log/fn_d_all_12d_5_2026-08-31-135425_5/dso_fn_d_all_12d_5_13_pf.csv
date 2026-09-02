@@ -1,0 +1,2 @@
+complexity,r,count_on_policy,count_off_policy,expression,traversal,nmse_test,nmse_test_noiseless,success
+10,0.0,1,0,[-x1**2*x12**4*x9**4 + x5],"sub,x5,n2,mul,mul,x1,n2,x12,n2,x9",10.255168680125983,10.255168680125983,False
