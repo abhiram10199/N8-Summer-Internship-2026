@@ -1365,8 +1365,11 @@ def prepare_encoder_input():
 
     ## Basic vocabolary - symbolic operators + coefficients
     vocab = {'start': 0, 'add': 1, 'mul': 2, 'pow': 3, 'sin': 4, 'cos': 5, '+': 6, '-': 7, 
-             '1':8 ,'2':9, '3':10, '4':11, '5':12, '6':13, '7':14, '8':15, '9': 16, '0':17, "E+1":18,
-             'E+0': 19, 'E-1': 20, 'E-2':21, 'E-3':22}
+             '1':8, '2':9, '3':10, '4':11, '5':12, '6':13, '7':14, '8':15, '9': 16, '0':17}
+    
+    # Support full scientific notation exponent range [-100, +100]
+    for exp in range(-100, 101):
+        vocab[f'E{exp:+d}'] = len(vocab)
     
     ## Add state varaibles into vocabolary
     for i in range(len(dynamics()[0])):
@@ -1376,6 +1379,13 @@ def prepare_encoder_input():
     ## Convert dynamics from ODE form into sequences of symbolic tokens in pre-order traversal
     f = dynamics()[1]
     polish_expr = [to_polish_with_encoding(i) for i in f]
+    
+    # Ensure any custom token from polish expressions is present in vocab
+    for expr in polish_expr:
+        for token in expr:
+            if token not in vocab:
+                vocab[token] = len(vocab)
+
     input_ids = [[vocab[token] for token in i] for i in polish_expr] 
 
     # Concant sequences together
