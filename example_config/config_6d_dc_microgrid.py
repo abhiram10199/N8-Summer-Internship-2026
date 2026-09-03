@@ -8,7 +8,7 @@ def config_factory():
     return {
         "task": {
             "task_type": "regression",
-            "function_set": ["add", "sub", "mul", "sin", "cos", "n2"],  # Standard Koza library
+            "function_set": ["add", "sub", "mul", "n2"],  # Standard Koza library
         },
         "training": {
             "n_samples": 2000000,
@@ -23,59 +23,71 @@ def config_factory():
         },
         "prior": {
             "length": {
-                "min_": 6,
-                "max_": 15,
+                "min_": 12,
+                "max_": 20,
                 "on": True,
             },
             "repeat": {"tokens": "const", "min_": None, "max_": 5, "on": True},
             "inverse": {"on": True},
-            "trig": {"on": True},
+            "trig": {"on": False},
             "const": {"on": False},
             "no_inputs": {"on": True},
             "uniform_arity": {"on": False},
-            "soft_length": {"loc": 10, "scale": 5, "on": True},
+            "soft_length": {"loc": 15, "scale": 5, "on": True},
         },
     }
 
 
 def dynamics():
-    """6-D DC Microgrid with 2 Constant Power Loads (CPLs).
+    """6-D DC Microgrid with 2 Constant Power Loads (CPLs) in Normalized Energy Coordinates.
 
     Derived from Zitian Qiu/DC microgrid/Copy_of_DC_grid_2CPLs_simplified.m.
-    States:
-        x1, x2, x3: Inductor current deviations Delta i_L1, Delta i_L2, Delta i_L3 [A]
-        x4, x5, x6: Capacitor voltage deviations Delta v_C1, Delta v_C2, Delta v_C3 [V]
-    Equilibrium (SEP):
-        i_e = [7.72595415, 4.65880530, 3.06714885] A
-        v_e = [196.90961834, 193.18257410, 195.62141583] V
+    Physical Circuit Parameters:
+        R = [0.4, 0.8, 0.42] Ohm
+        L = [17.3e-3, 40.0e-3, 19.6e-3] H
+        C = [1.05e-3, 1.0e-3, 1.05e-3] F
+        CPL power: p1 = 900.0 W, p2 = 600.0 W at buses 2 and 3
+        Equilibrium voltages: v_e2 = 193.18257410 V, v_e3 = 195.62141583 V
+
+    Coordinate Normalization (Energy State Space):
+        To allow symbolic discovery without arbitrary float weights (since const=False),
+        we normalize states by their physical storage factors:
+            x1 = sqrt(L1) * Delta i_L1
+            x2 = sqrt(L2) * Delta i_L2
+            x3 = sqrt(L3) * Delta i_L3
+            x4 = sqrt(C1) * Delta v_C1
+            x5 = sqrt(C2) * Delta v_C2
+            x6 = sqrt(C3) * Delta v_C3
+        In these coordinates, the reactive LC power exchange terms (+x1*x4 and -x1*x4)
+        are skew-symmetric and cancel out identically, making standard polynomial
+        and quadratic candidates V = sum(xi^2) physically consistent Lyapunov candidates.
     """
     x1, x2, x3, x4, x5, x6 = sym.symbols("x1, x2, x3, x4, x5, x6")
     state_variables = [x1, x2, x3, x4, x5, x6]
 
-    # Circuit Parameters
-    # R = [0.4, 0.8, 0.42] Ohm
-    # L = [17.3e-3, 40.0e-3, 19.6e-3] H
-    # C = [1.05e-3, 1.0e-3, 1.05e-3] F
-    # Constant Power Loads: p = [900.0, 600.0] W at buses 2 and 3
-    # Equilibrium voltages for CPL terms:
+    L = [17.3e-3, 40.0e-3, 19.6e-3]
+    C = [1.05e-3, 1.0e-3, 1.05e-3]
+    R = [0.4, 0.8, 0.42]
     v_e2 = 193.18257410
     v_e3 = 195.62141583
 
-    # Shifted ODEs in deviation coordinates: dot(x) = f(x) with f(0) = 0
-    # dot(Delta i1) = (-R1*Delta i1 - Delta v1) / L1
-    # dot(Delta i2) = (-R2*Delta i2 + Delta v1 - Delta v2) / L2
-    # dot(Delta i3) = (-R3*Delta i3 + Delta v1 - Delta v3) / L3
-    # dot(Delta v1) = (Delta i1 - Delta i2 - Delta i3) / C1
-    # dot(Delta v2) = (Delta i2 - p1/(v_e2 + Delta v2) + p1/v_e2) / C2
-    # dot(Delta v3) = (Delta i3 - p2/(v_e3 + Delta v3) + p2/v_e3) / C3
+    inv_sqrt_L1C1 = 1.0 / sym.sqrt(L[0] * C[0])
+    inv_sqrt_L2C1 = 1.0 / sym.sqrt(L[1] * C[0])
+    inv_sqrt_L2C2 = 1.0 / sym.sqrt(L[1] * C[1])
+    inv_sqrt_L3C1 = 1.0 / sym.sqrt(L[2] * C[0])
+    inv_sqrt_L3C3 = 1.0 / sym.sqrt(L[2] * C[2])
 
+    inv_sqrt_C2 = 1.0 / sym.sqrt(C[1])
+    inv_sqrt_C3 = 1.0 / sym.sqrt(C[2])
+
+    # Normalized ODEs: dot(x) = f(x) with f(0) = 0
     dynamics_ode = [
-        (-0.4 / 17.3e-3) * x1 - (1.0 / 17.3e-3) * x4,
-        (-0.8 / 40.0e-3) * x2 + (1.0 / 40.0e-3) * (x4 - x5),
-        (-0.42 / 19.6e-3) * x3 + (1.0 / 19.6e-3) * (x4 - x6),
-        (1.0 / 1.05e-3) * (x1 - x2 - x3),
-        (1.0 / 1.0e-3) * (x2 - 900.0 / (v_e2 + x5) + 900.0 / v_e2),
-        (1.0 / 1.05e-3) * (x3 - 600.0 / (v_e3 + x6) + 600.0 / v_e3),
+        (-R[0] / L[0]) * x1 - inv_sqrt_L1C1 * x4,
+        (-R[1] / L[1]) * x2 + inv_sqrt_L2C1 * x4 - inv_sqrt_L2C2 * x5,
+        (-R[2] / L[2]) * x3 + inv_sqrt_L3C1 * x4 - inv_sqrt_L3C3 * x6,
+        inv_sqrt_L1C1 * x1 - inv_sqrt_L2C1 * x2 - inv_sqrt_L3C1 * x3,
+        inv_sqrt_L2C2 * x2 - inv_sqrt_C2 * (900.0 / (v_e2 + x5 * (1.0 / inv_sqrt_C2)) - 900.0 / v_e2),
+        inv_sqrt_L3C3 * x3 - inv_sqrt_C3 * (600.0 / (v_e3 + x6 * (1.0 / inv_sqrt_C3)) - 600.0 / v_e3),
     ]
 
     return state_variables, dynamics_ode
