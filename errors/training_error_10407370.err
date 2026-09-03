@@ -1,0 +1,27 @@
+MainProcess| 2026-09-02 16:53:06,711,711 multiprocessing INFO STARTING NEW RUN ==========
+MainProcess| 2026-09-02 16:53:06,712,712 multiprocessing INFO SEE LOG AT : ./logs/all_Lyapunov_test_dso-fn_d_all_6dc_20260902_165306_log.txt
+MainProcess| 2026-09-02 16:53:06,712,712 multiprocessing INFO See log at : ./logs/all_Lyapunov_test_dso-fn_d_all_6dc_20260902_165306_log.txt
+MainProcess| 2026-09-02 16:53:06,715,715 multiprocessing INFO                 variables                     expression                                                                                                                                                                                                    train_spec test_spec function_set
+name                                                                                                                                                                                                                                                                                         
+fn_d_all_6dc_5          6  0*x1+0*x2+0*x3+0*x4+0*x5+0*x6  {"x1": {"U": [-5.0, 5.0, 50000]}, "x2": {"U": [-5.0, 5.0, 50000]}, "x3": {"U": [-5.0, 5.0, 50000]}, "x4": {"U": [-20.0, 20.0, 50000]}, "x5": {"U": [-20.0, 20.0, 50000]}, "x6": {"U": [-20.0, 20.0, 50000]}}      None         Koza
+MainProcess| 2026-09-02 16:53:06,917,917 multiprocessing INFO [BASELINE_TESTING NOW] dataset=fn_d_all_6dc_5 	| baseline=transformer 	| seed=5 	| data_samples=50000 	| noise=0.0
+MainProcess| 2026-09-02 16:53:06,921,921 multiprocessing INFO [RUN SETTINGS]: test_dataset=fn_d_all_6dc_5  batch_outer_datasets=24 pre_train=False load_pre_trained_path= priority_queue_training=True gp_meld=True model=TransformerTreeEncoderController train_path= risk_seeking_pg_train=True
+MainProcess| 2026-09-02 16:53:06,954,954 multiprocessing INFO Running model : TransformerTreeEncoderController
+MainProcess| 2026-09-02 16:53:06,966,966 multiprocessing INFO Function set: ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'add', 'sub', 'mul', 'sin', 'cos', 'n2']
+Traceback (most recent call last):
+  File "/mnt/scratch/groups/powersys2/ALFD/Lyapunov_test_dso.py", line 521, in <module>
+    main(dataset)
+  File "/mnt/scratch/groups/powersys2/ALFD/Lyapunov_test_dso.py", line 164, in main
+    result = perform_run(task_input)
+  File "/mnt/scratch/groups/powersys2/ALFD/Lyapunov_test_dso.py", line 111, in perform_run
+    result = top_main(
+  File "/mnt/scratch/groups/powersys2/ALFD/Lyapunov_test_dso.py", line 299, in top_main
+    vocab_size=prepare_encoder_input()[1],
+  File "/mnt/scratch/groups/powersys2/ALFD/utils/train.py", line 1379, in prepare_encoder_input
+    input_ids = [[vocab[token] for token in i] for i in polish_expr] 
+  File "/mnt/scratch/groups/powersys2/ALFD/utils/train.py", line 1379, in <listcomp>
+    input_ids = [[vocab[token] for token in i] for i in polish_expr] 
+  File "/mnt/scratch/groups/powersys2/ALFD/utils/train.py", line 1379, in <listcomp>
+    input_ids = [[vocab[token] for token in i] for i in polish_expr] 
+KeyError: 'E+2'
+MainProcess| 2026-09-02 16:53:07,035,35 multiprocessing INFO process shutting down
