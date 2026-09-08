@@ -219,7 +219,8 @@ class RegressionTask(HierarchicalTask):
         origin = float(deri.evalf(subs=evaluated_origin))
     
         variable_count = len(list(p.sympy_expr[0].free_symbols))
-        if variable_count < len(dynamics()[0]):
+        total_vars = len(dynamics()[0])
+        if variable_count == 0:
             return self.invalid_reward
         else:
             lie = p.sympy_expr_lie
@@ -233,6 +234,9 @@ class RegressionTask(HierarchicalTask):
             lie_result = numpy_v_dot(*[self.X_train[:, i] for i in range(self.X_train.shape[1])]) * 1
 
         r = self.metric(lie_result, y_hat-origin)
+        if variable_count < total_vars:
+            missing_ratio = (total_vars - variable_count) / total_vars
+            r = max(0.0, r * (1.0 - 0.5 * missing_ratio))
 
         # Direct reward noise
         # For reward_noise_type == "r", success can for ~max_reward metrics be

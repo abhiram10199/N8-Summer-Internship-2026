@@ -18,8 +18,9 @@ def config_factory():
         },
         "controller": {
             "learning_rate": 0.0003,
-            "entropy_weight": 0.005,
+            "entropy_weight": 0.03,
             "entropy_gamma": 0.8,
+            "pqt_weight": 10.0,
         },
         "prior": {
             "length": {

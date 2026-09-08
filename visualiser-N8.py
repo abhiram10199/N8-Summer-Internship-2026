@@ -461,9 +461,14 @@ if not log_content:
 metadata, metrics_df, pqt_df, hof_df, pareto_df = parse_log_file(log_content)
 
 # Resolve default expression
-primary_candidate = metadata["discovered_expression"]
-if not primary_candidate and hof_df is not None and not hof_df.empty:
-    primary_candidate = hof_df.iloc[0]["Expression"]
+if hof_df is not None and not hof_df.empty:
+    hof_top_r = hof_df.iloc[0].get("Reward", 0.0)
+    test_r = metadata.get("r", 0.0) or 0.0
+    if hof_top_r > test_r:
+        primary_candidate = hof_df.iloc[0]["Expression"]
+    else:
+        primary_candidate = metadata["discovered_expression"] or hof_df.iloc[0]["Expression"]
+
 
 # Resolve active equation (defaults directly to the discovered result from the run)
 active_eq_str = primary_candidate if primary_candidate else ""
@@ -498,7 +503,9 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # Performance Indicators
-best_reward_val = metrics_df['Best Reward'].max() if metrics_df is not None and not metrics_df.empty else (hof_df.iloc[0]['Reward'] if hof_df is not None and not hof_df.empty else 0.0)
+telemetry_best = metrics_df['Best Reward'].max() if (metrics_df is not None and not metrics_df.empty) else 0.0
+hof_best = hof_df.iloc[0]['Reward'] if (hof_df is not None and not hof_df.empty) else 0.0
+best_reward_val = max(telemetry_best, hof_best)
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("Maximum Reward (r_best)", f"{best_reward_val:.5f}")
 c2.metric("Test NMSE", f"{metadata['test_nmse']:.3f}" if metadata['test_nmse'] is not None else "N/A")

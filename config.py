@@ -1,10 +1,8 @@
 import importlib
 import os
 
-# 2d, 3d, 4d, 6d_poly, 6d_quad, 8d, 10d, 12d
+# 2d, 3d, 4d, 6d_poly, 6d_quad, 8d, 10d, 12d, 6d_dc, 20d_kron, 49d_full
 SELECT_DIMENSION = "6d_dc"
-# SELECT_DIMENSION = os.getenv("SELECT_DIMENSION", "2d")
-
 
 def CURRENT_CONFIG():
     CONFIGS = {
