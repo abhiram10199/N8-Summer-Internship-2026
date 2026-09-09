@@ -219,3 +219,5 @@ __marimo__/
 
 # Extra Folder
 Zitian Qiu/
+*.mat
+*.m

@@ -8,7 +8,7 @@ def config_factory():
     return {
         "task": {
             "task_type": "regression",
-            "function_set": ["add", "sub", "mul", "n2"],  # Standard Koza library
+            "function_set": ["add", "n2"],  # Pure sum-of-squares grammar
         },
         "training": {
             "n_samples": 2000000,
@@ -23,18 +23,34 @@ def config_factory():
             "pqt_weight": 10.0,
         },
         "prior": {
+            "relational": [
+                {
+                    # Prevent nested squaring: degree must remain <= 2 (quadratic)
+                    "targets": ["n2"],
+                    "effectors": ["n2"],
+                    "relationship": "descendant",
+                    "on": True,
+                },
+                {
+                    # Enforce sum-of-squares: n2 only squares terminal variables, not sums
+                    "targets": ["add"],
+                    "effectors": ["n2"],
+                    "relationship": "child",
+                    "on": True,
+                },
+            ],
             "length": {
-                "min_": 12,
-                "max_": 20,
+                # Minimal length required to include all 6 state dimensions (5 adds + 6 n2 + 6 vars = 17 tokens)
+                "min_": 17,
+                "max_": 19,
                 "on": True,
             },
-            "repeat": {"tokens": "const", "min_": None, "max_": 5, "on": True},
-            "inverse": {"on": True},
+            "inverse": {"on": False},
             "trig": {"on": False},
             "const": {"on": False},
             "no_inputs": {"on": True},
             "uniform_arity": {"on": False},
-            "soft_length": {"loc": 15, "scale": 5, "on": True},
+            "soft_length": {"loc": 17, "scale": 2.0, "on": True},
         },
     }
 
@@ -101,8 +117,12 @@ def dynamics():
     dz2 = (-R[1] / L[1]) * z2 + inv_sqrt_L2C1 * z4 - inv_sqrt_L2C2 * z5
     dz3 = (-R[2] / L[2]) * z3 + inv_sqrt_L3C1 * z4 - inv_sqrt_L3C3 * z6
     dz4 = inv_sqrt_L1C1 * z1 - inv_sqrt_L2C1 * z2 - inv_sqrt_L3C1 * z3
-    dz5 = inv_sqrt_L2C2 * z2 - inv_sqrt_C2 * (900.0 / (v_e2 + z5 * (1.0 / inv_sqrt_C2)) - 900.0 / v_e2)
-    dz6 = inv_sqrt_L3C3 * z3 - inv_sqrt_C3 * (600.0 / (v_e3 + z6 * (1.0 / inv_sqrt_C3)) - 600.0 / v_e3)
+    dz5 = inv_sqrt_L2C2 * z2 - inv_sqrt_C2 * (
+        900.0 / (v_e2 + z5 * (1.0 / inv_sqrt_C2)) - 900.0 / v_e2
+    )
+    dz6 = inv_sqrt_L3C3 * z3 - inv_sqrt_C3 * (
+        600.0 / (v_e3 + z6 * (1.0 / inv_sqrt_C3)) - 600.0 / v_e3
+    )
 
     # Transformed ODEs dy = R * dz:
     dynamics_ode = [
