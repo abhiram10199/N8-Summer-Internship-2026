@@ -1,0 +1,50 @@
+MainProcess| 2026-09-09 11:22:35,545,545 multiprocessing INFO STARTING NEW RUN ==========
+MainProcess| 2026-09-09 11:22:35,546,546 multiprocessing INFO SEE LOG AT : ./logs/all_Lyapunov_test_dso-fn_d_all_6dc_20260909_112235_log.txt
+MainProcess| 2026-09-09 11:22:35,546,546 multiprocessing INFO See log at : ./logs/all_Lyapunov_test_dso-fn_d_all_6dc_20260909_112235_log.txt
+MainProcess| 2026-09-09 11:22:35,549,549 multiprocessing INFO                 variables                     expression                                                                                                                                                                                              train_spec test_spec function_set
+name                                                                                                                                                                                                                                                                                   
+fn_d_all_6dc_5          6  0*x1+0*x2+0*x3+0*x4+0*x5+0*x6  {"x1": {"U": [-0.3, 0.3, 50000]}, "x2": {"U": [-0.3, 0.3, 50000]}, "x3": {"U": [-0.3, 0.3, 50000]}, "x4": {"U": [-0.3, 0.3, 50000]}, "x5": {"U": [-0.3, 0.3, 50000]}, "x6": {"U": [-0.3, 0.3, 50000]}}      None         Koza
+MainProcess| 2026-09-09 11:22:35,771,771 multiprocessing INFO [BASELINE_TESTING NOW] dataset=fn_d_all_6dc_5 	| baseline=transformer 	| seed=5 	| data_samples=50000 	| noise=0.0
+MainProcess| 2026-09-09 11:22:35,775,775 multiprocessing INFO [RUN SETTINGS]: test_dataset=fn_d_all_6dc_5  batch_outer_datasets=24 pre_train=False load_pre_trained_path= priority_queue_training=True gp_meld=True model=TransformerTreeEncoderController train_path= risk_seeking_pg_train=True
+MainProcess| 2026-09-09 11:22:35,808,808 multiprocessing INFO Running model : TransformerTreeEncoderController
+MainProcess| 2026-09-09 11:22:35,820,820 multiprocessing INFO Function set: ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'add', 'n2']
+MainProcess| 2026-09-09 11:22:36,102,102 multiprocessing INFO Transformer overwriting hidden size to input_dim 128
+/mnt/fastscratch/users/sgabhat4/.conda/envs/lyapunov_env/lib/python3.9/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+MainProcess| 2026-09-09 11:22:36,620,620 multiprocessing INFO Encoder params: {'sinuisodal_embeddings': False, 'dec_pf_dim': 32, 'dec_layers': 1, 'dim_hidden': 128, 'lr': 0.0001, 'dropout': 0, 'num_features': 1, 'ln': True, 'N_p': 0, 'num_inds': 64, 'activation': 'relu', 'bit16': False, 'norm': True, 'linear': True, 'input_normalization': False, 'src_pad_idx': 0, 'trg_pad_idx': 0, 'length_eq': 20, 'n_l_enc': 3, 'mean': 0.5, 'std': 0.5, 'dim_input': 64, 'num_heads': 2, 'output_dim': 10}
+MainProcess| 2026-09-09 11:22:36,634,634 multiprocessing INFO TransformerTreeEncoderController parameters: 4062848 	 | trainable : 4062848
+MainProcess| 2026-09-09 11:22:36,675,675 multiprocessing INFO GP CONFIG : {'verbose': False, 'generations': 35, 'p_crossover': 0.5, 'p_mutate': 0.5, 'tournament_size': 7, 'train_n': 50, 'mutate_tree_max': 3}
+MainProcess| 2026-09-09 11:22:36,808,808 multiprocessing INFO config: {'experiment': {'logdir': './log', 'seed': 13, 'timestamp': '2026-09-09-112235', 'task_name': 'fn_d_all_6dc_5', 'save_path': './log/fn_d_all_6dc_5_2026-09-09-112235_5'}, 'task': {'task_type': 'regression', 'dataset': 'fn_d_all_6dc_5', 'function_set': ['add', 'n2'], 'metric': 'lyapunov_risk', 'metric_params': [1.0], 'extra_metric_test': None, 'extra_metric_test_params': [], 'threshold': 1e-12, 'protected': False, 'reward_noise': 0.0, 'reward_noise_type': 'r', 'normalize_variance': False, 'decision_tree_threshold_set': []}, 'training': {'n_epochs': None, 'n_samples': 2000000, 'batch_size': 500, 'epsilon': 0.1, 'baseline': 'R_e', 'alpha': 0.5, 'b_jumpstart': False, 'n_cores_batch': 1, 'complexity': 'token', 'const_optimizer': 'scipy', 'const_params': {'method': 'L-BFGS-B', 'options': {'gtol': 0.001}}, 'verbose': True, 'debug': 0, 'early_stopping': True, 'hof': 100, 'use_memory': False, 'memory_capacity': 1000.0, 'warm_start': None, 'memory_threshold': None, 'save_all_epoch': False, 'save_summary': False, 'save_positional_entropy': False, 'save_pareto_front': True, 'save_cache': False, 'save_cache_r_min': 0.9, 'save_freq': 1, 'save_token_count': False}, 'state_manager': {'observe_action': False, 'observe_parent': True, 'observe_sibling': True, 'observe_dangling': False, 'embedding': True, 'embedding_size': 64}, 'controller': {'max_length': 64, 'cell': 'lstm', 'num_layers': 1, 'num_units': 64, 'initializer': 'zeros', 'learning_rate': 0.0003, 'optimizer': 'adam', 'entropy_weight': 0.03, 'entropy_gamma': 0.8, 'pqt': True, 'pqt_k': 10, 'pqt_batch_size': 1, 'pqt_weight': 10.0, 'pqt_use_pg': False, 'summary': False, 'rl_weight': 1.0}, 'gp_meld': {'generations': 35, 'p_crossover': 0.5, 'p_mutate': 0.5, 'tournament_size': 7, 'train_n': 50, 'mutate_tree_max': 3}, 'prior': {'relational': [{'targets': ['n2'], 'effectors': ['n2'], 'relationship': 'descendant'}, {'targets': ['add'], 'effectors': ['n2'], 'relationship': 'child'}], 'length': {'min_': 17, 'max_': 19}, 'repeat': {'tokens': 'const', 'min_': None, 'max_': 10}, 'inverse': {}, 'trig': {}, 'const': {}, 'no_inputs': {}, 'uniform_arity': {}, 'soft_length': {'loc': 17, 'scale': 2.0}}, 'postprocess': {'show_count': 5, 'save_plots': True}, 'model': 'TransformerTreeEncoderController', 'function_names_str': 'x1,x2,x3,x4,x5,x6,add,n2', 'nesymres_train_config': {'architecture': {'sinuisodal_embeddings': False, 'dec_pf_dim': 32, 'dec_layers': 1, 'dim_hidden': 128, 'lr': 0.0001, 'dropout': 0, 'num_features': 1, 'ln': True, 'N_p': 0, 'num_inds': 64, 'activation': 'relu', 'bit16': False, 'norm': True, 'linear': True, 'input_normalization': False, 'src_pad_idx': 0, 'trg_pad_idx': 0, 'length_eq': 20, 'n_l_enc': 3, 'mean': 0.5, 'std': 0.5, 'dim_input': 64, 'num_heads': 2, 'output_dim': 10}}}
+/mnt/fastscratch/users/sgabhat4/.conda/envs/lyapunov_env/lib/python3.9/site-packages/torch/nn/functional.py:5193: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+/mnt/fastscratch/users/sgabhat4/.conda/envs/lyapunov_env/lib/python3.9/site-packages/torch/nn/functional.py:5193: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/mnt/scratch/groups/powersys2/ALFD/Lyapunov_test_dso.py", line 521, in <module>
+    main(dataset)
+  File "/mnt/scratch/groups/powersys2/ALFD/Lyapunov_test_dso.py", line 164, in main
+    result = perform_run(task_input)
+  File "/mnt/scratch/groups/powersys2/ALFD/Lyapunov_test_dso.py", line 111, in perform_run
+    result = top_main(
+  File "/mnt/scratch/groups/powersys2/ALFD/Lyapunov_test_dso.py", line 349, in top_main
+    optomize_at_test(
+  File "/mnt/scratch/groups/powersys2/ALFD/utils/train.py", line 349, in optomize_at_test
+    actions, obs, priors = controller.sample(batch_size, data_to_encode)
+  File "/mnt/scratch/groups/powersys2/ALFD/models/transformers2.py", line 659, in sample
+    actions, obs, priors = self._sample(n, input_=input_)
+  File "/mnt/scratch/groups/powersys2/ALFD/models/transformers2.py", line 462, in _sample
+    action = torch.distributions.categorical.Categorical(logits=logits).sample()
+  File "/mnt/fastscratch/users/sgabhat4/.conda/envs/lyapunov_env/lib/python3.9/site-packages/torch/distributions/categorical.py", line 71, in __init__
+    super().__init__(batch_shape, validate_args=validate_args)
+  File "/mnt/fastscratch/users/sgabhat4/.conda/envs/lyapunov_env/lib/python3.9/site-packages/torch/distributions/distribution.py", line 70, in __init__
+    raise ValueError(
+ValueError: Expected parameter logits (Tensor of shape (500, 8)) of distribution Categorical(logits: torch.Size([500, 8])) to satisfy the constraint IndependentConstraint(Real(), 1), but found invalid values:
+tensor([[    nan,     nan,     nan,  ...,     nan,     nan,     nan],
+        [    nan,     nan,     nan,  ...,     nan,     nan,     nan],
+        [    nan,     nan,     nan,  ...,     nan,     nan,     nan],
+        ...,
+        [    nan,     nan,     nan,  ...,     nan,     nan,     nan],
+        [-3.4008, -2.2556, -2.7485,  ..., -2.1438, -1.7885, -1.2705],
+        [    nan,     nan,     nan,  ...,     nan,     nan,     nan]],
+       device='cuda:0', grad_fn=<SubBackward0>)
+MainProcess| 2026-09-09 11:22:39,866,866 multiprocessing INFO process shutting down

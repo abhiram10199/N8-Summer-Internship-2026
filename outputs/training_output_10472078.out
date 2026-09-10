@@ -1,0 +1,4604 @@
+                variables                     expression                                                                                                                                                                                              train_spec test_spec function_set
+name                                                                                                                                                                                                                                                                                   
+fn_d_all_6dc_5          6  0*x1+0*x2+0*x3+0*x4+0*x5+0*x6  {"x1": {"U": [-0.3, 0.3, 50000]}, "x2": {"U": [-0.3, 0.3, 50000]}, "x3": {"U": [-0.3, 0.3, 50000]}, "x4": {"U": [-0.3, 0.3, 50000]}, "x5": {"U": [-0.3, 0.3, 50000]}, "x6": {"U": [-0.3, 0.3, 50000]}}      None         Koza
+
+-- BUILDING DATASET START -----------
+Benchmark path                 : /mnt/scratch/groups/powersys2/ALFD/libs/sd3/dso/dso/task/regression/benchmarks_bkup_1.csv
+Generated data for benchmark   : fn_d_all_6dc_5
+-- BUILDING DATASET END -------------
+
+Function set                   : Koza --> ['add', 'n2']
+
+[RUN SETTINGS]: test_dataset=fn_d_all_6dc_5  batch_outer_datasets=24 pre_train=False load_pre_trained_path= priority_queue_training=True gp_meld=True model=TransformerTreeEncoderController train_path= risk_seeking_pg_train=True
+Running model : TransformerTreeEncoderController
+
+-- BUILDING DATASET START -----------
+Benchmark path                 : /mnt/scratch/groups/powersys2/ALFD/libs/sd3/dso/dso/task/regression/benchmarks_bkup_1.csv
+Generated data for benchmark   : fn_d_all_6dc_5
+-- BUILDING DATASET END -------------
+
+Function set                   : Koza --> ['add', 'n2']
+
+
+-- BUILDING DATASET START -----------
+Benchmark path                 : /mnt/scratch/groups/powersys2/ALFD/libs/sd3/dso/dso/task/regression/benchmarks_bkup_1.csv
+Generated data for benchmark   : fn_d_all_6dc_5
+-- BUILDING DATASET END -------------
+
+Function set                   : Koza --> ['add', 'n2']
+
+-- BUILDING PRIOR START -------------
+WARNING: Skipping invalid 'RepeatConstraint' with arguments {'tokens': 'const', 'min_': None, 'max_': 10}. Reason: Uses Tokens not in the Library.
+WARNING: Skipping invalid 'InverseUnaryConstraint' with arguments {}. Reason: Prior disabled.
+WARNING: Skipping invalid 'TrigConstraint' with arguments {}. Reason: Prior disabled.
+WARNING: Skipping invalid 'ConstConstraint' with arguments {}. Reason: Prior disabled.
+WARNING: Skipping invalid 'NoInputsConstraint' with arguments {}. Reason: All terminal tokens are input variables, so allsequences will have an input variable.
+WARNING: Skipping invalid 'UniformArityPrior' with arguments {}. Reason: Prior disabled.
+RelationalConstraint: [n2] cannot be a descendant of [n2].
+LengthConstraint: Sequences have minimum length 12.
+                  Sequences have maximum length 20.
+SoftLengthPrior: No description available.
+-- BUILDING PRIOR END ---------------
+
+Transformer overwriting hidden size to input_dim 128
+Encoder params: {'sinuisodal_embeddings': False, 'dec_pf_dim': 32, 'dec_layers': 1, 'dim_hidden': 128, 'lr': 0.0001, 'dropout': 0, 'num_features': 1, 'ln': True, 'N_p': 0, 'num_inds': 64, 'activation': 'relu', 'bit16': False, 'norm': True, 'linear': True, 'input_normalization': False, 'src_pad_idx': 0, 'trg_pad_idx': 0, 'length_eq': 20, 'n_l_enc': 3, 'mean': 0.5, 'std': 0.5, 'dim_input': 64, 'num_heads': 2, 'output_dim': 10}
+TransformerTreeEncoderController parameters: 4062848 	 | trainable : 4062848
+GP CONFIG : {'verbose': False, 'generations': 35, 'p_crossover': 0.5, 'p_mutate': 0.5, 'tournament_size': 7, 'train_n': 50, 'mutate_tree_max': 3}
+
+-- BUILDING DATASET START -----------
+Benchmark path                 : /mnt/scratch/groups/powersys2/ALFD/libs/sd3/dso/dso/task/regression/benchmarks_bkup_1.csv
+Generated data for benchmark   : fn_d_all_6dc_5
+-- BUILDING DATASET END -------------
+
+Function set                   : Koza --> ['add', 'n2']
+
+-- RUNNING EPOCHS START -------------
+torch.Size([500, 318])
+Genetic Porgramming Runtime 95.69329516217113
+
+=========================PGD Collection Starts=========================
+
+(10000,)
+
+===================Collect 10000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(78809, 6)
+(78809,)
+(78809, 6)
+(78809,)
+
+=======================Successfully Added (28809, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9971766970923323
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0001]  nevals=13697 	| train_loss=172.96024 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.02010 	| r_quantile_mean=0.02634 	| r_raw_sum=5.15189 	|  r_raw_mean=0.00937 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=165.55893
+[00:00:02:45.88] Training epoch 1/4000, current best R: 0.0564
+
+	** New best
+	Reward: 0.05639321930204265
+	Count Off-policy: 0
+	Count On-policy: 1
+	Originally on Policy: True
+	Invalid: False
+	Traversal: n2,add,x2,add,x3,add,x4,add,x1,add,x6,x1
+	Expression:
+
+	                            2
+	  (2⋅x₁ + x₂ + x₃ + x₄ + x₆) 
+
+Genetic Porgramming Runtime 126.84276731312275
+
+=========================PGD Collection Starts=========================
+
+(15761,)
+
+===================Collect 15761 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(98014, 6)
+(98014,)
+(98015, 6)
+(98015,)
+
+=======================Successfully Added (19206, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9984542854218749
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0002]  nevals=27427 	| train_loss=149.65137 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01127 	| r_quantile_mean=0.01496 	| r_raw_sum=2.94641 	|  r_raw_mean=0.00536 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=194.89966
+Genetic Porgramming Runtime 164.2427221070975
+
+=========================PGD Collection Starts=========================
+
+(19602,)
+
+===================Collect 19602 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (22407, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9931086500749856
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0003]  nevals=41246 	| train_loss=182.41760 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01147 	| r_quantile_mean=0.01452 	| r_raw_sum=3.46224 	|  r_raw_mean=0.00629 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=381.72797
+Genetic Porgramming Runtime 119.33299131691456
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (28809, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9673032904781658
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0004]  nevals=54955 	| train_loss=211.34073 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01377 	| r_quantile_mean=0.01599 	| r_raw_sum=4.27329 	|  r_raw_mean=0.00777 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=184.45401
+Genetic Porgramming Runtime 150.52905669808388
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (32010, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9989257713073946
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0005]  nevals=68652 	| train_loss=155.60342 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01114 	| r_quantile_mean=0.01444 	| r_raw_sum=3.52779 	|  r_raw_mean=0.00641 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=222.79151
+[00:00:19:09.90] Training epoch 5/4000, current best R: 0.0564
+Genetic Porgramming Runtime 135.09506521187723
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (16005, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9998986303463365
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0006]  nevals=82347 	| train_loss=139.87135 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01430 	| r_quantile_mean=0.01711 	| r_raw_sum=4.42723 	|  r_raw_mean=0.00805 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=203.85641
+Genetic Porgramming Runtime 142.217732636258
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (6402, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9996204225025914
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0007]  nevals=96109 	| train_loss=120.34341 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01328 	| r_quantile_mean=0.01683 	| r_raw_sum=4.00200 	|  r_raw_mean=0.00728 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=207.42243
+Genetic Porgramming Runtime 138.38590216077864
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (22407, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9991357984342544
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0008]  nevals=109854 	| train_loss=95.66922 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01795 	| r_quantile_mean=0.02156 	| r_raw_sum=5.40107 	|  r_raw_mean=0.00982 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=205.27706
+Genetic Porgramming Runtime 154.48188893683255
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (12804, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9995110608532578
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0009]  nevals=123695 	| train_loss=141.86081 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01450 	| r_quantile_mean=0.01822 	| r_raw_sum=3.99085 	|  r_raw_mean=0.00726 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=221.25674
+Genetic Porgramming Runtime 136.60874702222645
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (9603, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9911964557749638
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0010]  nevals=137552 	| train_loss=131.50777 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01571 	| r_quantile_mean=0.02059 	| r_raw_sum=3.74200 	|  r_raw_mean=0.00680 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=200.56226
+[00:00:36:28.28] Training epoch 10/4000, current best R: 0.0564
+Genetic Porgramming Runtime 136.2750362996012
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (3201, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9958457240866783
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0011]  nevals=151319 	| train_loss=366.02005 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01546 	| r_quantile_mean=0.01943 	| r_raw_sum=4.40337 	|  r_raw_mean=0.00801 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=197.04186
+Genetic Porgramming Runtime 169.81747162900865
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (3201, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9998983360597822
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0012]  nevals=164960 	| train_loss=220.22922 	| eqs_invalid %=0.00 	| r_best=0.05639 	| quantile=0.01419 	| r_quantile_mean=0.01696 	| r_raw_sum=3.98975 	|  r_raw_mean=0.00725 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=10.0 	| true_equation_set_count=0 	| s/it=232.84380
+Genetic Porgramming Runtime 146.7628084179014
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (9603, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9934174478324087
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0013]  nevals=178677 	| train_loss=148.42863 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01253 	| r_quantile_mean=0.01965 	| r_raw_sum=3.97814 	|  r_raw_mean=0.00723 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=217.25139
+[00:00:47:15.42] Training epoch 13/4000, current best R: 0.1013
+
+	** New best
+	Reward: 0.10131889208697063
+	Count Off-policy: 1
+	Count On-policy: 0
+	Originally on Policy: False
+	Invalid: False
+	Traversal: n2,n2,add,n2,x5,n2,add,x6,add,n2,add,add,n2,x2,n2,x4,n2,x1,n2,x3
+	Expression:
+
+	                                          4
+	  ⎛                                     2⎞ 
+	  ⎜      ⎛                            2⎞ ⎟ 
+	  ⎜  2   ⎜  2        ⎛  2     2     2⎞ ⎟ ⎟ 
+	  ⎝x₅  + ⎝x₃  + x₆ + ⎝x₁  + x₂  + x₄ ⎠ ⎠ ⎠ 
+
+Genetic Porgramming Runtime 145.3701240029186
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (3201, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9984913777389348
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0014]  nevals=192364 	| train_loss=144.12132 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01452 	| r_quantile_mean=0.01754 	| r_raw_sum=4.08762 	|  r_raw_mean=0.00743 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=213.76923
+Genetic Porgramming Runtime 144.87169294431806
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9976244666968335
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0015]  nevals=206187 	| train_loss=140.94624 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01607 	| r_quantile_mean=0.01957 	| r_raw_sum=4.62914 	|  r_raw_mean=0.00842 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=206.16734
+[00:00:54:15.36] Training epoch 15/4000, current best R: 0.1013
+Genetic Porgramming Runtime 126.98089019954205
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9973554133714794
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0016]  nevals=219883 	| train_loss=128.78383 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01652 	| r_quantile_mean=0.02021 	| r_raw_sum=4.78181 	|  r_raw_mean=0.00869 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=185.39647
+Genetic Porgramming Runtime 136.6165332812816
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9988829617387166
+GP output success rate: 0.06666666666666667
+[(x3 + (x4 + x6 + (x1 + x2 + x5**2)**2)**4)**32]
+
+==============End Supervised Learning==============
+
+[Test epoch=0017]  nevals=233631 	| train_loss=213.73935 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01650 	| r_quantile_mean=0.02031 	| r_raw_sum=4.79989 	|  r_raw_mean=0.00873 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=199.20779
+Genetic Porgramming Runtime 168.74338464811444
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(59,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(59, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.998350663504566
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0018]  nevals=247349 	| train_loss=113.47332 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01776 	| r_quantile_mean=0.02192 	| r_raw_sum=4.91423 	|  r_raw_mean=0.00893 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=228.83906
+Genetic Porgramming Runtime 156.12019671872258
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(61,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(61, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9987180281105291
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0019]  nevals=261234 	| train_loss=124.90390 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01593 	| r_quantile_mean=0.01913 	| r_raw_sum=3.94977 	|  r_raw_mean=0.00718 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=218.50705
+Genetic Porgramming Runtime 150.5961818974465
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.99937017176123
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0020]  nevals=274948 	| train_loss=110.56573 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.02060 	| r_quantile_mean=0.02566 	| r_raw_sum=5.38963 	|  r_raw_mean=0.00980 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=211.34717
+[00:01:11:38.66] Training epoch 20/4000, current best R: 0.1013
+Genetic Porgramming Runtime 158.79965683445334
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(58,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(58, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9949491184549764
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0021]  nevals=288739 	| train_loss=157.25101 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01725 	| r_quantile_mean=0.02164 	| r_raw_sum=4.91690 	|  r_raw_mean=0.00894 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=219.84603
+Genetic Porgramming Runtime 141.8096670433879
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(58,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(58, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9975440460601109
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0022]  nevals=302495 	| train_loss=111.25627 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01907 	| r_quantile_mean=0.02316 	| r_raw_sum=5.40901 	|  r_raw_mean=0.00983 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=201.78320
+Genetic Porgramming Runtime 132.30569574795663
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9960653641623853
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0023]  nevals=316329 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.02524 	| r_quantile_mean=0.03137 	| r_raw_sum=7.30795 	|  r_raw_mean=0.01329 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=195.12338
+Genetic Porgramming Runtime 141.8849360924214
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 17308 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9608400641650349
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0024]  nevals=330184 	| train_loss=108.09300 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.02061 	| r_quantile_mean=0.02828 	| r_raw_sum=5.72099 	|  r_raw_mean=0.01040 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=196.48666
+Genetic Porgramming Runtime 135.42404256388545
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 32
+32
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9984860619906535
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0025]  nevals=343927 	| train_loss=228.48610 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.02213 	| r_quantile_mean=0.02579 	| r_raw_sum=6.05275 	|  r_raw_mean=0.01101 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=192.19959
+[00:01:28:24.10] Training epoch 25/4000, current best R: 0.1013
+Genetic Porgramming Runtime 156.3154767602682
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9967901990333591
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0026]  nevals=357705 	| train_loss=89.23418 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.02350 	| r_quantile_mean=0.02989 	| r_raw_sum=6.48357 	|  r_raw_mean=0.01179 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=218.29334
+Genetic Porgramming Runtime 159.58145730011165
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9922570785759547
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0027]  nevals=371547 	| train_loss=93.38021 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.02163 	| r_quantile_mean=0.02807 	| r_raw_sum=6.09698 	|  r_raw_mean=0.01109 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=225.71267
+Genetic Porgramming Runtime 156.19555176980793
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9974383402920566
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0028]  nevals=385248 	| train_loss=172.24626 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.02832 	| r_quantile_mean=0.03641 	| r_raw_sum=8.05692 	|  r_raw_mean=0.01465 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=215.68863
+Genetic Porgramming Runtime 178.5130917094648
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(58,)
+Number of Programs for Minimization: 34
+34
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(58, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9958163957689532
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0029]  nevals=399002 	| train_loss=111.57627 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.02629 	| r_quantile_mean=0.03100 	| r_raw_sum=6.94443 	|  r_raw_mean=0.01263 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=242.31136
+Genetic Porgramming Runtime 147.73312791250646
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 31
+31
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9967552676886974
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0030]  nevals=412680 	| train_loss=150.67250 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.03155 	| r_quantile_mean=0.03774 	| r_raw_sum=8.69302 	|  r_raw_mean=0.01581 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=208.18801
+[00:01:46:54.29] Training epoch 30/4000, current best R: 0.1013
+Genetic Porgramming Runtime 105.5691200029105
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(59,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(59, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9928435789809416
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0031]  nevals=426393 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.03247 	| r_quantile_mean=0.04112 	| r_raw_sum=8.88768 	|  r_raw_mean=0.01616 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=160.20346
+Genetic Porgramming Runtime 132.6746319681406
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 31
+31
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9995909326311794
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0032]  nevals=440163 	| train_loss=180.17734 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01783 	| r_quantile_mean=0.02723 	| r_raw_sum=4.95913 	|  r_raw_mean=0.00902 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=197.70461
+Genetic Porgramming Runtime 137.79115828499198
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.997292534567359
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0033]  nevals=454054 	| train_loss=125.80341 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.01889 	| r_quantile_mean=0.02690 	| r_raw_sum=5.03880 	|  r_raw_mean=0.00916 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=200.62529
+Genetic Porgramming Runtime 111.42701227404177
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 12923 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(59,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(59, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9394000168570699
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0034]  nevals=467744 	| train_loss=130.64836 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.02595 	| r_quantile_mean=0.03317 	| r_raw_sum=7.08288 	|  r_raw_mean=0.01288 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=162.64067
+Genetic Porgramming Runtime 158.40040933713317
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.99161928895262
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0035]  nevals=481474 	| train_loss=174.62680 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.03075 	| r_quantile_mean=0.03460 	| r_raw_sum=8.20245 	|  r_raw_mean=0.01491 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=223.48343
+[00:02:02:38.95] Training epoch 35/4000, current best R: 0.1013
+Genetic Porgramming Runtime 169.4070150759071
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(60,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(60, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9885451196454806
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0036]  nevals=495319 	| train_loss=99.79408 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.02915 	| r_quantile_mean=0.03376 	| r_raw_sum=7.29071 	|  r_raw_mean=0.01326 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=235.54022
+Genetic Porgramming Runtime 156.33294051513076
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 35
+35
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9995459731340564
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0037]  nevals=509125 	| train_loss=148.97433 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.03702 	| r_quantile_mean=0.04510 	| r_raw_sum=9.35013 	|  r_raw_mean=0.01700 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=217.61522
+Genetic Porgramming Runtime 131.16218047216535
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(61,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(61, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9967685954419951
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0038]  nevals=522934 	| train_loss=118.21529 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.03149 	| r_quantile_mean=0.03852 	| r_raw_sum=8.21325 	|  r_raw_mean=0.01493 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=195.86412
+Genetic Porgramming Runtime 125.87889571860433
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 13546 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(61,)
+Number of Programs for Minimization: 34
+34
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(61, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9654877113776722
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0039]  nevals=536595 	| train_loss=97.03243 	| eqs_invalid %=0.00 	| r_best=0.10132 	| quantile=0.03742 	| r_quantile_mean=0.04268 	| r_raw_sum=9.91682 	|  r_raw_mean=0.01803 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.1455827055225655 	| true_equation_set_count=0 	| s/it=181.35981
+Genetic Porgramming Runtime 142.16886880248785
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(63,)
+Number of Programs for Minimization: 32
+32
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (5549, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(63, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9726981354975044
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0040]  nevals=550450 	| train_loss=133.01482 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04314 	| r_quantile_mean=0.06420 	| r_raw_sum=11.34410 	|  r_raw_mean=0.02063 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=212.20393
+[00:02:20:01.53] Training epoch 40/4000, current best R: 0.6842
+
+	** New best
+	Reward: 0.6841520899787038
+	Count Off-policy: 1
+	Count On-policy: 0
+	Originally on Policy: False
+	Invalid: False
+	Traversal: n2,n2,n2,add,add,x6,x5,n2,add,x4,n2,add,x1,add,x3,n2,add,x1,x2
+	Expression:
+
+	                                             8
+	  ⎛                                        2⎞ 
+	  ⎜          ⎛                           2⎞ ⎟ 
+	  ⎜          ⎜     ⎛                   2⎞ ⎟ ⎟ 
+	  ⎝x₅ + x₆ + ⎝x₄ + ⎝x₁ + x₃ + (x₁ + x₂) ⎠ ⎠ ⎠ 
+
+[00:02:20:01.54] Training epoch 40/4000, current best R: 0.6842
+Genetic Porgramming Runtime 160.21373530849814
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(59,)
+Number of Programs for Minimization: 44
+44
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(59, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9911941894785126
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0041]  nevals=564106 	| train_loss=84.28595 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04320 	| r_quantile_mean=0.04977 	| r_raw_sum=10.52645 	|  r_raw_mean=0.01914 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=224.72888
+Genetic Porgramming Runtime 141.1385742984712
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(59,)
+Number of Programs for Minimization: 33
+33
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(59, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9940276949654674
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0042]  nevals=577871 	| train_loss=106.52566 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04059 	| r_quantile_mean=0.04951 	| r_raw_sum=10.53119 	|  r_raw_mean=0.01915 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=213.56834
+Genetic Porgramming Runtime 142.15335755981505
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9864848654244122
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0043]  nevals=591650 	| train_loss=61.28448 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02944 	| r_quantile_mean=0.03795 	| r_raw_sum=7.46823 	|  r_raw_mean=0.01358 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=205.67735
+Genetic Porgramming Runtime 140.30269395187497
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 33
+33
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9728671464616359
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0044]  nevals=605404 	| train_loss=45.23109 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04650 	| r_quantile_mean=0.05395 	| r_raw_sum=11.04597 	|  r_raw_mean=0.02008 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=199.93803
+Genetic Porgramming Runtime 125.74796452373266
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(86,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(86, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9943757169834089
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0045]  nevals=619126 	| train_loss=129.05992 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.05069 	| r_quantile_mean=0.05108 	| r_raw_sum=11.62660 	|  r_raw_mean=0.02114 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=189.39839
+[00:02:37:14.85] Training epoch 45/4000, current best R: 0.6842
+Genetic Porgramming Runtime 147.10310301557183
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 55
+55
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9953971564163927
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0046]  nevals=632764 	| train_loss=147.43135 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.05679 	| r_quantile_mean=0.05679 	| r_raw_sum=13.00510 	|  r_raw_mean=0.02365 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=213.71057
+Genetic Porgramming Runtime 106.17665911652148
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(86,)
+Number of Programs for Minimization: 31
+31
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(86, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9973950653454668
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0047]  nevals=646470 	| train_loss=103.88202 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04368 	| r_quantile_mean=0.04837 	| r_raw_sum=11.45443 	|  r_raw_mean=0.02083 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=166.86521
+Genetic Porgramming Runtime 163.67550776153803
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(58,)
+Number of Programs for Minimization: 32
+32
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(58, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.99164706447999
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0048]  nevals=660240 	| train_loss=91.99302 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03686 	| r_quantile_mean=0.04487 	| r_raw_sum=8.39301 	|  r_raw_mean=0.01526 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=233.72110
+Genetic Porgramming Runtime 151.8984844405204
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(61,)
+Number of Programs for Minimization: 34
+34
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(61, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9929808952880901
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0049]  nevals=674003 	| train_loss=64.08543 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04579 	| r_quantile_mean=0.05312 	| r_raw_sum=11.08183 	|  r_raw_mean=0.02015 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=217.17516
+Genetic Porgramming Runtime 124.02301027998328
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(72,)
+Number of Programs for Minimization: 72
+72
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(72, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9955207297395687
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0050]  nevals=687732 	| train_loss=84.69455 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.05514 	| r_quantile_mean=0.05575 	| r_raw_sum=11.75298 	|  r_raw_mean=0.02137 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=188.03055
+[00:02:54:14.36] Training epoch 50/4000, current best R: 0.6842
+Genetic Porgramming Runtime 148.65474503301084
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 16205 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(64,)
+Number of Programs for Minimization: 64
+64
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(64, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.33266351851151915
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0051]  nevals=701466 	| train_loss=52.51107 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.06062 	| r_quantile_mean=0.06175 	| r_raw_sum=11.34353 	|  r_raw_mean=0.02062 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=209.82468
+Genetic Porgramming Runtime 135.7478295955807
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(71,)
+Number of Programs for Minimization: 71
+71
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(71, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9806973765797508
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0052]  nevals=715335 	| train_loss=77.57031 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04655 	| r_quantile_mean=0.04974 	| r_raw_sum=10.57034 	|  r_raw_mean=0.01922 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=207.70649
+Genetic Porgramming Runtime 125.13477264717221
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(59,)
+Number of Programs for Minimization: 39
+39
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(59, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9845327519775738
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0053]  nevals=729009 	| train_loss=73.40031 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04634 	| r_quantile_mean=0.05066 	| r_raw_sum=9.47878 	|  r_raw_mean=0.01723 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=196.38670
+Genetic Porgramming Runtime 122.83549957349896
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 15434 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 47
+47
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.28626097944668305
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0054]  nevals=742765 	| train_loss=131.78996 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04753 	| r_quantile_mean=0.05209 	| r_raw_sum=11.10872 	|  r_raw_mean=0.02020 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=186.17511
+Genetic Porgramming Runtime 143.91532055288553
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 55
+55
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9890598559267973
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0055]  nevals=756522 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04351 	| r_quantile_mean=0.04852 	| r_raw_sum=10.00343 	|  r_raw_mean=0.01819 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=210.56494
+[00:03:11:05.02] Training epoch 55/4000, current best R: 0.6842
+Genetic Porgramming Runtime 143.9825887195766
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(60,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(60, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9938817641137091
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0056]  nevals=770235 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03543 	| r_quantile_mean=0.04397 	| r_raw_sum=6.67840 	|  r_raw_mean=0.01214 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=223.89367
+Genetic Porgramming Runtime 174.33388439379632
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9896560325185639
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0057]  nevals=783873 	| train_loss=115.15970 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02914 	| r_quantile_mean=0.04216 	| r_raw_sum=5.72855 	|  r_raw_mean=0.01042 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=249.59869
+Genetic Porgramming Runtime 104.40990088507533
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 8353 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 33
+33
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.2200966661518134
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0058]  nevals=797582 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03555 	| r_quantile_mean=0.04434 	| r_raw_sum=8.69627 	|  r_raw_mean=0.01581 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=170.52744
+Genetic Porgramming Runtime 113.61301234550774
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 16822 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.962881711249004
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0059]  nevals=811330 	| train_loss=88.48263 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03990 	| r_quantile_mean=0.04814 	| r_raw_sum=9.57606 	|  r_raw_mean=0.01741 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=178.42193
+Genetic Porgramming Runtime 131.00969632342458
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(63,)
+Number of Programs for Minimization: 44
+44
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(63, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9902804081454423
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0060]  nevals=825104 	| train_loss=72.34258 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.05232 	| r_quantile_mean=0.06365 	| r_raw_sum=13.25847 	|  r_raw_mean=0.02411 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=203.31583
+[00:03:28:10.77] Training epoch 60/4000, current best R: 0.6842
+Genetic Porgramming Runtime 118.79949864000082
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 46
+46
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9842902748560564
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0061]  nevals=838862 	| train_loss=123.41337 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.06494 	| r_quantile_mean=0.07203 	| r_raw_sum=14.14946 	|  r_raw_mean=0.02573 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=185.25773
+Genetic Porgramming Runtime 121.5589279960841
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(59,)
+Number of Programs for Minimization: 35
+35
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(59, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9911547145021921
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0062]  nevals=852522 	| train_loss=50.75613 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04037 	| r_quantile_mean=0.05269 	| r_raw_sum=9.00285 	|  r_raw_mean=0.01637 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=194.28986
+Genetic Porgramming Runtime 131.38548500463367
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(60,)
+Number of Programs for Minimization: 38
+38
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(60, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.989673590159542
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0063]  nevals=866106 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04456 	| r_quantile_mean=0.05978 	| r_raw_sum=11.85180 	|  r_raw_mean=0.02155 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=206.63926
+Genetic Porgramming Runtime 116.76966901309788
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(62,)
+Number of Programs for Minimization: 44
+44
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(62, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.967729302247017
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0064]  nevals=879738 	| train_loss=55.87622 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.05655 	| r_quantile_mean=0.06873 	| r_raw_sum=12.71694 	|  r_raw_mean=0.02312 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=186.74956
+Genetic Porgramming Runtime 137.11594391986728
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(59,)
+Number of Programs for Minimization: 59
+59
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(59, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9911392011491027
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0065]  nevals=893454 	| train_loss=56.43854 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.05501 	| r_quantile_mean=0.05769 	| r_raw_sum=14.01910 	|  r_raw_mean=0.02549 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=209.82119
+[00:03:44:33.53] Training epoch 65/4000, current best R: 0.6842
+Genetic Porgramming Runtime 138.10902757756412
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(62,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(62, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.988973563312394
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0066]  nevals=907160 	| train_loss=331.52686 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04414 	| r_quantile_mean=0.05203 	| r_raw_sum=11.60326 	|  r_raw_mean=0.02110 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=211.80552
+Genetic Porgramming Runtime 153.5039408262819
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 12800 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(63,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(63, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.21065168416713007
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0067]  nevals=920940 	| train_loss=67.89198 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04034 	| r_quantile_mean=0.05743 	| r_raw_sum=10.09356 	|  r_raw_mean=0.01835 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=221.53586
+Genetic Porgramming Runtime 129.08597840555012
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 31
+31
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9901755858184986
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0068]  nevals=934651 	| train_loss=43.11630 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04157 	| r_quantile_mean=0.05690 	| r_raw_sum=11.10617 	|  r_raw_mean=0.02019 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=201.95758
+Genetic Porgramming Runtime 121.19882640615106
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 35
+35
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.978666820173458
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0069]  nevals=948361 	| train_loss=220.99734 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04977 	| r_quantile_mean=0.06949 	| r_raw_sum=12.98638 	|  r_raw_mean=0.02361 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=192.24903
+Genetic Porgramming Runtime 157.7232095003128
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 13719 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(58,)
+Number of Programs for Minimization: 45
+45
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(58, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9729508548386943
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0070]  nevals=962087 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04849 	| r_quantile_mean=0.06865 	| r_raw_sum=12.38779 	|  r_raw_mean=0.02252 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=227.17479
+[00:04:02:08.26] Training epoch 70/4000, current best R: 0.6842
+Genetic Porgramming Runtime 142.48232690617442
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9969180684930262
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0071]  nevals=975852 	| train_loss=254.13780 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03811 	| r_quantile_mean=0.05024 	| r_raw_sum=7.88295 	|  r_raw_mean=0.01433 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=221.24846
+Genetic Porgramming Runtime 154.04801987856627
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9912141144628862
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0072]  nevals=989449 	| train_loss=116.06906 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02250 	| r_quantile_mean=0.03217 	| r_raw_sum=5.17541 	|  r_raw_mean=0.00941 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=237.94254
+Genetic Porgramming Runtime 100.98610324040055
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 15800 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(60,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(60, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.951829809284357
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0073]  nevals=1003145 	| train_loss=123.31226 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04861 	| r_quantile_mean=0.05670 	| r_raw_sum=11.38731 	|  r_raw_mean=0.02070 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=172.42562
+Genetic Porgramming Runtime 123.13012275099754
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 17901 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(60,)
+Number of Programs for Minimization: 36
+36
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(60, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9612658677173338
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0074]  nevals=1017016 	| train_loss=208.20932 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.05490 	| r_quantile_mean=0.06027 	| r_raw_sum=12.48550 	|  r_raw_mean=0.02270 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=193.87330
+Genetic Porgramming Runtime 170.59420925192535
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(59,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(59, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9935204672629683
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0075]  nevals=1030711 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03965 	| r_quantile_mean=0.04663 	| r_raw_sum=8.94503 	|  r_raw_mean=0.01626 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=251.76238
+[00:04:20:05.51] Training epoch 75/4000, current best R: 0.6842
+Genetic Porgramming Runtime 171.05618426948786
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9979236572700084
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0076]  nevals=1044505 	| train_loss=102.02740 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01831 	| r_quantile_mean=0.03058 	| r_raw_sum=3.87344 	|  r_raw_mean=0.00704 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=260.68658
+Genetic Porgramming Runtime 141.89450826495886
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(60,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(60, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9981469471660933
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0077]  nevals=1058337 	| train_loss=117.15276 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03824 	| r_quantile_mean=0.05265 	| r_raw_sum=9.13257 	|  r_raw_mean=0.01660 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=227.24208
+Genetic Porgramming Runtime 171.41110520996153
+
+=========================PGD Collection Starts=========================
+
+
+===================Collect 3417 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.12551592776526138
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0078]  nevals=1072045 	| train_loss=117.08653 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03755 	| r_quantile_mean=0.05046 	| r_raw_sum=9.67522 	|  r_raw_mean=0.01759 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=241.36191
+Genetic Porgramming Runtime 173.75891642086208
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 32
+32
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9955296176395598
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0079]  nevals=1085686 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03433 	| r_quantile_mean=0.04914 	| r_raw_sum=8.37878 	|  r_raw_mean=0.01523 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=261.63491
+Genetic Porgramming Runtime 128.63254744186997
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9899555270482124
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0080]  nevals=1099514 	| train_loss=96.50832 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03393 	| r_quantile_mean=0.04444 	| r_raw_sum=8.10844 	|  r_raw_mean=0.01474 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=216.98741
+[00:04:40:13.42] Training epoch 80/4000, current best R: 0.6842
+Genetic Porgramming Runtime 148.17942905426025
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(62,)
+Number of Programs for Minimization: 32
+32
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(62, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9874582523630013
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0081]  nevals=1113333 	| train_loss=38.00023 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04623 	| r_quantile_mean=0.05975 	| r_raw_sum=12.18932 	|  r_raw_mean=0.02216 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=238.39722
+Genetic Porgramming Runtime 115.86626404710114
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(72,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(72, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9411538554174286
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0082]  nevals=1127198 	| train_loss=292.37308 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04936 	| r_quantile_mean=0.05889 	| r_raw_sum=13.92890 	|  r_raw_mean=0.02533 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=198.78527
+Genetic Porgramming Runtime 128.99742197990417
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.992864430361572
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0083]  nevals=1140949 	| train_loss=29.81940 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.05014 	| r_quantile_mean=0.05463 	| r_raw_sum=11.00332 	|  r_raw_mean=0.02001 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=215.09846
+Genetic Porgramming Runtime 142.90978344157338
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9925150585018279
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0084]  nevals=1154696 	| train_loss=23.86853 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03186 	| r_quantile_mean=0.04213 	| r_raw_sum=7.47567 	|  r_raw_mean=0.01359 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=238.98014
+Genetic Porgramming Runtime 109.8897002544254
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9262080110612598
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0085]  nevals=1168444 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03092 	| r_quantile_mean=0.04034 	| r_raw_sum=8.24137 	|  r_raw_mean=0.01498 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=197.04702
+[00:04:58:21.73] Training epoch 85/4000, current best R: 0.6842
+Genetic Porgramming Runtime 109.96546347811818
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(61,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(61, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9656273822181543
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0086]  nevals=1182167 	| train_loss=14.45415 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04707 	| r_quantile_mean=0.05436 	| r_raw_sum=11.78869 	|  r_raw_mean=0.02143 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=191.36638
+Genetic Porgramming Runtime 145.09075003117323
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(68,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(68, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9905425102908201
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0087]  nevals=1195938 	| train_loss=274.55515 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04502 	| r_quantile_mean=0.05390 	| r_raw_sum=12.18807 	|  r_raw_mean=0.02216 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=238.52384
+Genetic Porgramming Runtime 124.69235427118838
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9912903205749626
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0088]  nevals=1209581 	| train_loss=227.85965 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.04189 	| r_quantile_mean=0.05247 	| r_raw_sum=9.64214 	|  r_raw_mean=0.01753 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=215.76150
+Genetic Porgramming Runtime 186.5799700152129
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9954588719347275
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0089]  nevals=1223435 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02566 	| r_quantile_mean=0.03749 	| r_raw_sum=5.28249 	|  r_raw_mean=0.00960 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=297.96490
+Genetic Porgramming Runtime 150.5167218092829
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (9603, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9918651670098377
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0090]  nevals=1237209 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01059 	| r_quantile_mean=0.01719 	| r_raw_sum=2.73093 	|  r_raw_mean=0.00497 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=256.99596
+[00:05:18:22.35] Training epoch 90/4000, current best R: 0.6842
+Genetic Porgramming Runtime 168.57209965214133
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.995330762153676
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0091]  nevals=1250955 	| train_loss=247.68752 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01210 	| r_quantile_mean=0.02025 	| r_raw_sum=3.07444 	|  r_raw_mean=0.00559 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=267.64780
+Genetic Porgramming Runtime 125.7410594355315
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(59,)
+Number of Programs for Minimization: 32
+32
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(59, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9199689100444615
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0092]  nevals=1264666 	| train_loss=96.85464 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02701 	| r_quantile_mean=0.03161 	| r_raw_sum=6.21594 	|  r_raw_mean=0.01130 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=213.28957
+Genetic Porgramming Runtime 125.66777677834034
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9720985347719171
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0093]  nevals=1278405 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03099 	| r_quantile_mean=0.04263 	| r_raw_sum=9.13385 	|  r_raw_mean=0.01661 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=211.84501
+Genetic Porgramming Runtime 177.98277747258544
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(58,)
+Number of Programs for Minimization: 37
+37
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(58, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9882197627211212
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0094]  nevals=1292169 	| train_loss=157.12164 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.03286 	| r_quantile_mean=0.03978 	| r_raw_sum=8.43707 	|  r_raw_mean=0.01534 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=275.33381
+Genetic Porgramming Runtime 121.94603588804603
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9807290596216902
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0095]  nevals=1305959 	| train_loss=196.11877 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02392 	| r_quantile_mean=0.03153 	| r_raw_sum=6.53162 	|  r_raw_mean=0.01188 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=304.75532
+[00:05:39:35.22] Training epoch 95/4000, current best R: 0.6842
+Genetic Porgramming Runtime 158.5881203059107
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (6402, 6) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.7075199897542057
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0096]  nevals=1319626 	| train_loss=33.69225 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02232 	| r_quantile_mean=0.03816 	| r_raw_sum=6.41480 	|  r_raw_mean=0.01166 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=253.34449
+Genetic Porgramming Runtime 176.69365970417857
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.995961459940312
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0097]  nevals=1333395 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02007 	| r_quantile_mean=0.03092 	| r_raw_sum=4.20874 	|  r_raw_mean=0.00765 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=285.40381
+Genetic Porgramming Runtime 119.80778539180756
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(58,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(58, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.98114334784693
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0098]  nevals=1347123 	| train_loss=137.50320 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01871 	| r_quantile_mean=0.03194 	| r_raw_sum=4.42636 	|  r_raw_mean=0.00805 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=218.25895
+Genetic Porgramming Runtime 127.51675479859114
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9895363944235487
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0099]  nevals=1360795 	| train_loss=80.60500 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01857 	| r_quantile_mean=0.03223 	| r_raw_sum=4.39615 	|  r_raw_mean=0.00799 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=225.17883
+Genetic Porgramming Runtime 153.98799818567932
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9913168943878264
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0100]  nevals=1374525 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01746 	| r_quantile_mean=0.02579 	| r_raw_sum=4.22819 	|  r_raw_mean=0.00769 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=255.10771
+[00:06:00:12.51] Training epoch 100/4000, current best R: 0.6842
+Genetic Porgramming Runtime 145.25875432416797
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(56, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9919593161470038
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0101]  nevals=1388279 	| train_loss=171.70103 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01569 	| r_quantile_mean=0.02131 	| r_raw_sum=3.66532 	|  r_raw_mean=0.00666 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=249.71482
+Genetic Porgramming Runtime 136.14864960685372
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9822804259348137
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0102]  nevals=1401952 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01351 	| r_quantile_mean=0.01971 	| r_raw_sum=3.41068 	|  r_raw_mean=0.00620 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=234.08277
+Genetic Porgramming Runtime 137.15196543186903
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9947526487387658
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0103]  nevals=1415682 	| train_loss=118.11655 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01632 	| r_quantile_mean=0.02168 	| r_raw_sum=4.00314 	|  r_raw_mean=0.00728 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=240.12909
+Genetic Porgramming Runtime 152.4608525764197
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.2096411677719599
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0104]  nevals=1429479 	| train_loss=180.42918 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01583 	| r_quantile_mean=0.02213 	| r_raw_sum=3.82718 	|  r_raw_mean=0.00696 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=249.29759
+Genetic Porgramming Runtime 145.98417446389794
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9993321374668251
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0105]  nevals=1443283 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01514 	| r_quantile_mean=0.02147 	| r_raw_sum=3.38539 	|  r_raw_mean=0.00616 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=263.80881
+[00:06:20:49.55] Training epoch 105/4000, current best R: 0.6842
+Genetic Porgramming Runtime 167.5164444129914
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9929485936423903
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0106]  nevals=1457001 	| train_loss=80.82384 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01801 	| r_quantile_mean=0.02612 	| r_raw_sum=4.00296 	|  r_raw_mean=0.00728 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=273.13287
+Genetic Porgramming Runtime 162.40452339686453
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9945834760834651
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0107]  nevals=1470625 	| train_loss=215.58037 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.01678 	| r_quantile_mean=0.02462 	| r_raw_sum=4.47606 	|  r_raw_mean=0.00814 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=279.42232
+Genetic Porgramming Runtime 128.61934885941446
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(58,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(58, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9962772016527239
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0108]  nevals=1484246 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02125 	| r_quantile_mean=0.02502 	| r_raw_sum=5.27827 	|  r_raw_mean=0.00960 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=238.36125
+Genetic Porgramming Runtime 125.36203734204173
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(61,)
+Number of Programs for Minimization: 30
+30
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(61, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9843719296274941
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0109]  nevals=1498014 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02191 	| r_quantile_mean=0.02623 	| r_raw_sum=6.09018 	|  r_raw_mean=0.01107 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=237.05021
+Genetic Porgramming Runtime 145.07594494521618
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9947735363764303
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0110]  nevals=1511768 	| train_loss=86.70656 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02216 	| r_quantile_mean=0.02728 	| r_raw_sum=5.99424 	|  r_raw_mean=0.01090 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=253.64340
+[00:06:42:11.16] Training epoch 110/4000, current best R: 0.6842
+Genetic Porgramming Runtime 120.19850594736636
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(55,)
+Number of Programs for Minimization: 32
+32
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(55, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9923985771700675
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0111]  nevals=1525536 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02502 	| r_quantile_mean=0.03277 	| r_raw_sum=7.26860 	|  r_raw_mean=0.01322 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=228.45248
+Genetic Porgramming Runtime 163.14725010097027
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(57,)
+Number of Programs for Minimization: 28
+28
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+
+============None of the candidates fulfill the conditions. Training CONTINUES!=================
+
+(57, 318)
+
+==============Start Supervised Learning==============
+
+GP output mean: 0.9978851830918726
+GP output success rate: 0.0
+
+==============End Supervised Learning==============
+
+[Test epoch=0112]  nevals=1539335 	| train_loss=218.89709 	| eqs_invalid %=0.00 	| r_best=0.68415 	| quantile=0.02676 	| r_quantile_mean=0.03290 	| r_raw_sum=7.65913 	|  r_raw_mean=0.01393 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=19.833166088930238 	| true_equation_set_count=0 	| s/it=268.93750
+Genetic Porgramming Runtime 131.61063957214355
+
+=========================PGD Collection Starts=========================
+
+(20000,)
+
+===================Collect 20000 Examples===================
+
+Epsilon 0.1
+500
+(550,)
+(550,)
+(56,)
+Number of Programs for Minimization: 29
+29
+(100000, 6)
+(100000,)
+(100000, 6)
+(100000,)
+
+=======================Successfully Added (0,) Counter Examples=======================
+
+Number of valid equations: 3. Program should stopped
+(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**2
+[(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**2, (x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**4, (x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**8]
+Number of valid equations: 3. Program should stopped
+(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**2
+[(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**2, (x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**4, (x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**8]
+(56, 318)
+[Test epoch=0113]  nevals=1553142 	| train_loss=inf 	| eqs_invalid %=0.00 	| r_best=0.99608 	| quantile=0.02237 	| r_quantile_mean=0.07549 	| r_raw_sum=9.06062 	|  r_raw_mean=0.01647 	| r2=nan 	| acc_iid=0.00000 	| acc_ood=0.00000 	| nmse_test=0.0 	| true_equation_set_count=0 	| s/it=2010.19095
+[00:07:23:58.74] Training epoch 113/4000, current best R: 0.9961
+
+	** New best
+	Reward: 0.9960751492653367
+	Count Off-policy: 1
+	Count On-policy: 0
+	Originally on Policy: False
+	Invalid: False
+	Traversal: n2,add,n2,x1,add,add,add,n2,x3,n2,x4,n2,x6,add,n2,x2,n2,x5
+	Expression:
+
+	                                     2
+	  ⎛  2     2     2     2     2     2⎞ 
+	  ⎝x₁  + x₂  + x₃  + x₄  + x₅  + x₆ ⎠ 
+
+[00:07:23:58.74] Early stopping criteria met; breaking early.
+-- RUNNING EPOCHS END ---------------
+
+-- EVALUATION START ----------------
+Saving Hall of Fame to ./log/fn_d_all_6dc_5_2026-09-09-113516_5/dso_fn_d_all_6dc_5_13_hof.csv
+Saving Pareto Front to ./log/fn_d_all_6dc_5_2026-09-09-113516_5/dso_fn_d_all_6dc_5_13_pf.csv
+Invalid expressions: 378 of 1553142 (0.0%).
+Error type counts:
+  square: 378 (100.0%)
+Error node counts:
+  underflow: 378 (100.0%)
+
+Priority queue entry 0:
+	Reward: 0.9960751492653367
+	Count Off-policy: 1
+	Count On-policy: 0
+	Originally on Policy: False
+	Invalid: False
+	Traversal: n2,add,n2,x1,add,add,add,n2,x3,n2,x4,n2,x6,add,n2,x2,n2,x5
+	Expression:
+
+	                                     2
+	  ⎛  2     2     2     2     2     2⎞ 
+	  ⎝x₁  + x₂  + x₃  + x₄  + x₅  + x₆ ⎠ 
+
+
+Priority queue entry 1:
+	Reward: 0.6841520899787038
+	Count Off-policy: 1
+	Count On-policy: 0
+	Originally on Policy: False
+	Invalid: False
+	Traversal: n2,n2,n2,add,add,x6,x5,n2,add,x4,n2,add,x1,add,x3,n2,add,x1,x2
+	Expression:
+
+	                                             8
+	  ⎛                                        2⎞ 
+	  ⎜          ⎛                           2⎞ ⎟ 
+	  ⎜          ⎜     ⎛                   2⎞ ⎟ ⎟ 
+	  ⎝x₅ + x₆ + ⎝x₄ + ⎝x₁ + x₃ + (x₁ + x₂) ⎠ ⎠ ⎠ 
+
+
+Priority queue entry 2:
+	Reward: 0.5879934049226248
+	Count Off-policy: 1
+	Count On-policy: 0
+	Originally on Policy: False
+	Invalid: False
+	Traversal: n2,n2,n2,add,n2,add,x1,x2,add,n2,n2,add,x3,x1,add,n2,x5,x6
+	Expression:
+
+	                                      8
+	  ⎛  2                 2            4⎞ 
+	  ⎝x₅  + x₆ + (x₁ + x₂)  + (x₁ + x₃) ⎠ 
+
+
+Priority queue entry 3:
+	Reward: 0.22858211119862296
+	Count Off-policy: 1
+	Count On-policy: 0
+	Originally on Policy: False
+	Invalid: False
+	Traversal: n2,add,n2,add,n2,x6,n2,n2,x3,n2,add,add,n2,x2,n2,n2,x4,n2,x1
+	Expression:
+
+	                                     2
+	  ⎛           2                    2⎞ 
+	  ⎜⎛  4     2⎞    ⎛  2     2     4⎞ ⎟ 
+	  ⎝⎝x₃  + x₆ ⎠  + ⎝x₁  + x₂  + x₄ ⎠ ⎠ 
+
+
+Priority queue entry 4:
+	Reward: 0.22459909029894948
+	Count Off-policy: 1
+	Count On-policy: 0
+	Originally on Policy: False
+	Invalid: False
+	Traversal: n2,n2,n2,add,add,n2,x2,add,x6,x5,n2,add,n2,add,add,x3,x1,n2,x1,x4
+	Expression:
+
+	                                            8
+	  ⎛                                       2⎞ 
+	  ⎜                ⎛                    2⎞ ⎟ 
+	  ⎜  2             ⎜     ⎛  2          ⎞ ⎟ ⎟ 
+	  ⎝x₂  + x₅ + x₆ + ⎝x₄ + ⎝x₁  + x₁ + x₃⎠ ⎠ ⎠ 
+
+
+Priority queue entry 5:
+	Reward: 0.13984950155146397
+	Count Off-policy: 0
+	Count On-policy: 1
+	Originally on Policy: True
+	Invalid: False
+	Traversal: add,n2,add,x4,add,x6,x5,n2,add,x1,add,x1,add,x4,x2
+	Expression:
+
+	                  2                 2
+	  (2⋅x₁ + x₂ + x₄)  + (x₄ + x₅ + x₆) 
+
+
+Priority queue entry 6:
+	Reward: 0.13046324918956173
+	Count Off-policy: 0
+	Count On-policy: 1
+	Originally on Policy: True
+	Invalid: False
+	Traversal: add,n2,add,x6,x3,n2,add,x4,add,x1,add,x1,x2
+	Expression:
+
+	           2                   2
+	  (x₃ + x₆)  + (2⋅x₁ + x₂ + x₄) 
+
+
+Priority queue entry 7:
+	Reward: 0.10131889208697063
+	Count Off-policy: 1
+	Count On-policy: 0
+	Originally on Policy: False
+	Invalid: False
+	Traversal: n2,n2,add,n2,x5,n2,add,x6,add,n2,add,add,n2,x2,n2,x4,n2,x1,n2,x3
+	Expression:
+
+	                                          4
+	  ⎛                                     2⎞ 
+	  ⎜      ⎛                            2⎞ ⎟ 
+	  ⎜  2   ⎜  2        ⎛  2     2     2⎞ ⎟ ⎟ 
+	  ⎝x₅  + ⎝x₃  + x₆ + ⎝x₁  + x₂  + x₄ ⎠ ⎠ ⎠ 
+
+
+Priority queue entry 8:
+	Reward: 0.07706608716242663
+	Count Off-policy: 0
+	Count On-policy: 1
+	Originally on Policy: True
+	Invalid: False
+	Traversal: n2,add,add,add,add,x1,add,x1,x4,x2,x2,x1
+	Expression:
+
+	                    2
+	  (3⋅x₁ + 2⋅x₂ + x₄) 
+
+
+Priority queue entry 9:
+	Reward: 0.04843514943546337
+	Count Off-policy: 0
+	Count On-policy: 35
+	Originally on Policy: True
+	Invalid: False
+	Traversal: n2,add,x1,add,x2,add,x4,add,x1,add,x1,x2
+	Expression:
+
+	                    2
+	  (3⋅x₁ + 2⋅x₂ + x₄) 
+
+-- EVALUATION END ------------------
+== TRAINING SEED 13 END ==============
+
+== POST-PROCESS START =================
+-- LOADING LOGS START ----------------
+Successfully loaded Hall of Fame data
+Successfully loaded Pareto Front data
+*** WARNING:
+    --> Can't load summary: [Errno 2] No such file or directory: './log/fn_d_all_6dc_5_2026-09-09-113516_5/summary.csv'
+-- LOADING LOGS END ------------------
+
+-- ANALYZING LOG START --------------
+Task_____________regression
+Source path______./log/fn_d_all_6dc_5_2026-09-09-113516_5
+Runs_____________N/A
+Max Samples/run__2000000
+Found issues:
+  0
+Hall of Fame (Top 5 of 100)____
+    0: S=013 R=0.996075 <-- [(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**2]
+    1: S=013 R=0.995407 <-- [(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**2]
+    2: S=013 R=0.958819 <-- [(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**4]
+    3: S=013 R=0.957671 <-- [(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**4]
+    4: S=013 R=0.902454 <-- [(x5 + x6 + (x1 + x2)**2 + (x3**2 + x4 + x5**2)**2)**8]
+Pareto Front (5 of 7)____
+    0: S=013 R=0.996075 C=18.00 <-- [(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**2]
+    1: S=013 R=0.896302 C=17.00 <-- [(x5 + x6 + (x1 + x2)**2 + (x3**2 + x4)**2)**8]
+    2: S=013 R=0.827296 C=16.00 <-- [(x5 + x6 + (x3 + x4 + (x1 + x2)**2)**2)**8]
+    3: S=013 R=0.815760 C=15.00 <-- [((x4**2 + x5)**2 + (x6 + (x1 + x2)**2)**2)**4]
+    4: S=013 R=0.795418 C=14.00 <-- [(x4**2 + x5 + x6 + (x1 + x2)**2)**8]
+-- ANALYZING LOG END ----------------
+== POST-PROCESS END ===================
+[TEST RESULT] {'seed': 5, 'r': 0.9960751492653367, 'nmse_test': 0.0, 'nmse_test_noiseless': 0.0, 'success': True, 'expression': '[(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**2]', 'traversal': 'n2,add,n2,x1,add,add,add,n2,x3,n2,x4,n2,x6,add,n2,x2,n2,x5', 'program': n2,add,n2,x1,add,add,add,n2,x3,n2,x4,n2,x6,add,n2,x2,n2,x5, 'error_square': 378, 'error_node_underflow': 378, 'n_epochs': 113, 'n_samples': 1553142, 'n_cached': 493421, 't': 26645.477387666702, 'baseline': 'transformer', 'run_seed': 5, 'dataset': 'fn_d_all_6dc_5'}
+INFO: Completed run 1 of 1 in 26645 s | LATEST TEST_RESULT {'seed': 5, 'r': 0.9960751492653367, 'nmse_test': 0.0, 'nmse_test_noiseless': 0.0, 'success': True, 'expression': '[(x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2)**2]', 'traversal': 'n2,add,n2,x1,add,add,add,n2,x3,n2,x4,n2,x6,add,n2,x2,n2,x5', 'program': n2,add,n2,x1,add,add,add,n2,x3,n2,x4,n2,x6,add,n2,x2,n2,x5, 'error_square': 378, 'error_node_underflow': 378, 'n_epochs': 113, 'n_samples': 1553142, 'n_cached': 493421, 't': 26645.477387666702, 'baseline': 'transformer', 'run_seed': 5, 'dataset': 'fn_d_all_6dc_5'}

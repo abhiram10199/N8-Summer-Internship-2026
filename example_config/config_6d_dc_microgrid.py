@@ -1,7 +1,7 @@
 import collections
 
-from omegaconf import OmegaConf
 import sympy as sym
+from omegaconf import OmegaConf
 
 
 def config_factory():
@@ -31,18 +31,12 @@ def config_factory():
                     "relationship": "descendant",
                     "on": True,
                 },
-                {
-                    # Enforce sum-of-squares: n2 only squares terminal variables, not sums
-                    "targets": ["add"],
-                    "effectors": ["n2"],
-                    "relationship": "child",
-                    "on": True,
-                },
             ],
             "length": {
-                # Minimal length required to include all 6 state dimensions (5 adds + 6 n2 + 6 vars = 17 tokens)
-                "min_": 17,
-                "max_": 19,
+                # Min length 12 accommodates full 6D quadratics:
+                # e.g., (x1+x2+x3+x4+x5+x6)^2 is 12 tokens; sum(xi^2) is 17 tokens
+                "min_": 12,
+                "max_": 20,
                 "on": True,
             },
             "inverse": {"on": False},
@@ -50,7 +44,7 @@ def config_factory():
             "const": {"on": False},
             "no_inputs": {"on": True},
             "uniform_arity": {"on": False},
-            "soft_length": {"loc": 17, "scale": 2.0, "on": True},
+            "soft_length": {"loc": 17, "scale": 3.0, "on": True},
         },
     }
 
@@ -192,7 +186,7 @@ def get_config(skip_cli=True):
     )
     flat_cli_conf = flatten(cli_conf)
 
-    list_cond = [k in flat_base_conf for k in flat_cli_conf.keys()]
+    list_cond = [k in flat_base_conf for k in flat_cli_conf]
     contains_all_keys_bool = all(list_cond)
     assert contains_all_keys_bool, (
         f"Input CLI keys that cannot be set {set(flat_cli_conf) - set(flat_base_conf)}"
